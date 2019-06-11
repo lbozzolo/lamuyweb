@@ -16,9 +16,12 @@
         <div class="card-body">
             @if($items->count())
 
-                <span style="float: right" title="Tabla"><i class="mdi mdi-table text-muted"></i> </span>
-                <span style="float: right" title="Lista"><a href="{!! route('editions.index') !!}"><i class="mdi mdi-view-list"></i></a></span>
-                <div class="table-responsive">
+                <div>
+                    <span title="Tabla"><i class="mdi mdi-table text-muted"></i> </span>
+                    <span title="Lista"><a href="{!! route('editions.index') !!}"><i class="mdi mdi-view-list"></i></a></span>
+                </div>
+
+                <div class="table-responsive" style="margin-top: 20px">
                 @include($modelPlural.'.table')
                 </div>
             @else

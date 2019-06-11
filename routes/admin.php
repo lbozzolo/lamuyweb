@@ -2,7 +2,7 @@
 
 Auth::routes();
 
-Route::resource('magazines', 'MagazineController', ['only' => ['index', 'show']]);
+//Route::resource('magazines', 'MagazineController', ['only' => ['index', 'show']]);
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -13,11 +13,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Generator builder
 
-    Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder');
+    //Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder');
 
-    Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate');
+    //Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate');
 
-    Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate');
+    //Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate');
 
     // Sidebar Web
 

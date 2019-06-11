@@ -12,6 +12,7 @@
 */
 
 require(__DIR__ . '/admin.php');
+require(__DIR__ . '/api.php');
 
 Route::get('/', function () {
   return redirect('home');

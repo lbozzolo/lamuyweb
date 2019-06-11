@@ -16,27 +16,34 @@
         <div class="card-body">
             @if($items->count())
 
-                <span style="float: right" title="Tabla"><a href="{!! route('editions.index.table') !!}"><i class="mdi mdi-table"></i> </a></span>
-                <span style="float: right" title="Lista"><i class="mdi mdi-view-list text-muted"></i></span>
+                <div>
+                    <span title="Tabla"><a href="{!! route('editions.index.table') !!}"><i class="mdi mdi-table"></i> </a></span>
+                    <span title="Lista"><i class="mdi mdi-view-list text-muted"></i></span>
+                </div>
+
                 <ul class="list-unstyled list-inline row">
                     @foreach($items as $item)
-                        <li class="list-group-item col-lg-2">
 
-                            @if($item->url_cover)
+
+
+                            @if($item->url_cover && file_exists(public_path('covers/'.$item->url_cover)))
+                            <li class="list-group-item col-lg-2 col-md-3 col-sm-4 col-xs-6">
                                 <a href="{!! route($modelPlural.'.show', $item->id) !!}" class="text-dark">
                                     <img src="{{ route('cover.ver', $item->url_cover) }}" class="img-responsive" style="width: 100%">
-                                </a>
-                            @else
-                                <div style="border: 2px dotted lightgrey; height: 90%; padding: 20px 30px; margin-bottom: 10px">
-                                    <p class="text-default">No hay imagen <br>de portada.</p>
-                                </div>
-                            @endif
-                            <a href="{!! route($modelPlural.'.show', $item->id) !!}" class="text-dark">
-                                <span class="badge badge-dark"># {!! $item->number !!}</span>
-                                <span>{!! $item->title !!}</span>
-                            </a>
 
-                        </li>
+                                    <span class="badge badge-dark">Edición # {!! $item->number !!}</span>
+                                    {{--<span>{!! $item->title !!}</span>--}}
+                                </a>
+                            </li>
+                            @else
+                            <li class="list-group-item col-lg-2 col-md-3 col-sm-4 col-xs-6" style="position: relative; border: 2px dotted lightgrey;">
+                                <p class="text-center text-secondary">Sin imagen<br><i class="mdi mdi-close-outline mdi-36px"></i></p>
+                                 <a href="{!! route($modelPlural.'.show', $item->id) !!}" class="text-dark" style="position: absolute; bottom: 0; margin-bottom: 12px">
+                                    <span class="badge badge-dark">Edición # {!! $item->number !!}</span>
+                                </a>
+                            </li>
+                            @endif
+
                     @endforeach
                 </ul>
                 {{--<div class="table-responsive">--}}
