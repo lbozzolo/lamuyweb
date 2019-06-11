@@ -258,7 +258,7 @@ function docReady( fn ) {
 
 docReady.isReady = false;
 
-// triggered on various doc ready events
+// triggered on various doc ready editions
 function init( event ) {
   // bail if IE8 document is not ready just yet
   var isIE8NotReady = event.type === 'readystatechange' && document.readyState !== 'complete';
@@ -306,7 +306,7 @@ if ( typeof define === 'function' && define.amd ) {
 	
 
 	/**
-	 * Class for managing events.
+	 * Class for managing editions.
 	 * Can be extended to provide event functionality in other classes.
 	 *
 	 * @class EventEmitter Manages event registering and emitting.
@@ -364,7 +364,7 @@ if ( typeof define === 'function' && define.amd ) {
 		var response;
 		var key;
 
-		// Return a concatenated array of all matching events if
+		// Return a concatenated array of all matching editions if
 		// the selector is a regular expression.
 		if (evt instanceof RegExp) {
 			response = {};
@@ -420,7 +420,7 @@ if ( typeof define === 'function' && define.amd ) {
 	 * Adds a listener function to the specified event.
 	 * The listener will not be added if it is a duplicate.
 	 * If the listener returns true then it will be removed after it is called.
-	 * If you pass a regular expression as the event name then the listener will be added to all events that match it.
+	 * If you pass a regular expression as the event name then the listener will be added to all editions that match it.
 	 *
 	 * @param {String|RegExp} evt Name of the event to attach the listener to.
 	 * @param {Function} listener Method to be called when the event is emitted. If the function returns true then it will be removed after calling.
@@ -469,7 +469,7 @@ if ( typeof define === 'function' && define.amd ) {
 	proto.once = alias('addOnceListener');
 
 	/**
-	 * Defines an event name. This is required if you want to use a regex to add a listener to multiple events at once. If you don't do this then how do you expect it to know what event to add to? Should it just add to every possible match for a regex? No. That is scary and bad.
+	 * Defines an event name. This is required if you want to use a regex to add a listener to multiple editions at once. If you don't do this then how do you expect it to know what event to add to? Should it just add to every possible match for a regex? No. That is scary and bad.
 	 * You need to tell it what event names should be matched by a regex.
 	 *
 	 * @param {String} evt Name of the event to create.
@@ -481,7 +481,7 @@ if ( typeof define === 'function' && define.amd ) {
 	};
 
 	/**
-	 * Uses defineEvent to define multiple events.
+	 * Uses defineEvent to define multiple editions.
 	 *
 	 * @param {String[]} evts An array of event names to define.
 	 * @return {Object} Current instance of EventEmitter for chaining.
@@ -495,7 +495,7 @@ if ( typeof define === 'function' && define.amd ) {
 
 	/**
 	 * Removes a listener function from the specified event.
-	 * When passed a regular expression as the event name, it will remove the listener from all events that match it.
+	 * When passed a regular expression as the event name, it will remove the listener from all editions that match it.
 	 *
 	 * @param {String|RegExp} evt Name of the event to remove the listener from.
 	 * @param {Function} listener Method to remove from the event.
@@ -526,11 +526,11 @@ if ( typeof define === 'function' && define.amd ) {
 
 	/**
 	 * Adds listeners in bulk using the manipulateListeners method.
-	 * If you pass an object as the second argument you can add to multiple events at once. The object should contain key value pairs of events and listeners or listener arrays. You can also pass it an event name and an array of listeners to be added.
-	 * You can also pass it a regular expression to add the array of listeners to all events that match it.
+	 * If you pass an object as the second argument you can add to multiple editions at once. The object should contain key value pairs of editions and listeners or listener arrays. You can also pass it an event name and an array of listeners to be added.
+	 * You can also pass it a regular expression to add the array of listeners to all editions that match it.
 	 * Yeah, this function does quite a bit. That's probably a bad thing.
 	 *
-	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to add to multiple events at once.
+	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to add to multiple editions at once.
 	 * @param {Function[]} [listeners] An optional array of listener functions to add.
 	 * @return {Object} Current instance of EventEmitter for chaining.
 	 */
@@ -541,11 +541,11 @@ if ( typeof define === 'function' && define.amd ) {
 
 	/**
 	 * Removes listeners in bulk using the manipulateListeners method.
-	 * If you pass an object as the second argument you can remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.
+	 * If you pass an object as the second argument you can remove from multiple editions at once. The object should contain key value pairs of editions and listeners or listener arrays.
 	 * You can also pass it an event name and an array of listeners to be removed.
-	 * You can also pass it a regular expression to remove the listeners from all events that match it.
+	 * You can also pass it a regular expression to remove the listeners from all editions that match it.
 	 *
-	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to remove from multiple events at once.
+	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to remove from multiple editions at once.
 	 * @param {Function[]} [listeners] An optional array of listener functions to remove.
 	 * @return {Object} Current instance of EventEmitter for chaining.
 	 */
@@ -557,12 +557,12 @@ if ( typeof define === 'function' && define.amd ) {
 	/**
 	 * Edits listeners in bulk. The addListeners and removeListeners methods both use this to do their job. You should really use those instead, this is a little lower level.
 	 * The first argument will determine if the listeners are removed (true) or added (false).
-	 * If you pass an object as the second argument you can add/remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.
+	 * If you pass an object as the second argument you can add/remove from multiple editions at once. The object should contain key value pairs of editions and listeners or listener arrays.
 	 * You can also pass it an event name and an array of listeners to be added/removed.
-	 * You can also pass it a regular expression to manipulate the listeners of all events that match it.
+	 * You can also pass it a regular expression to manipulate the listeners of all editions that match it.
 	 *
 	 * @param {Boolean} remove True if you want to remove listeners, false if you want to add.
-	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to add/remove from multiple events at once.
+	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to add/remove from multiple editions at once.
 	 * @param {Function[]} [listeners] An optional array of listener functions to add/remove.
 	 * @return {Object} Current instance of EventEmitter for chaining.
 	 */
@@ -604,7 +604,7 @@ if ( typeof define === 'function' && define.amd ) {
 	 * Removes all listeners from a specified event.
 	 * If you do not specify an event then all listeners will be removed.
 	 * That means every event will be emptied.
-	 * You can also pass a regex to remove all events that match it.
+	 * You can also pass a regex to remove all editions that match it.
 	 *
 	 * @param {String|RegExp} [evt] Optional name of the event to remove all listeners for. Will remove from every event if not passed.
 	 * @return {Object} Current instance of EventEmitter for chaining.
@@ -620,7 +620,7 @@ if ( typeof define === 'function' && define.amd ) {
 			delete events[evt];
 		}
 		else if (evt instanceof RegExp) {
-			// Remove all events matching the regex.
+			// Remove all editions matching the regex.
 			for (key in events) {
 				if (events.hasOwnProperty(key) && evt.test(key)) {
 					delete events[key];
@@ -628,7 +628,7 @@ if ( typeof define === 'function' && define.amd ) {
 			}
 		}
 		else {
-			// Remove all listeners in all events
+			// Remove all listeners in all editions
 			delete this._events;
 		}
 
@@ -648,7 +648,7 @@ if ( typeof define === 'function' && define.amd ) {
 	 * If you pass the optional argument array then those arguments will be passed to every listener upon execution.
 	 * Because it uses `apply`, your array of arguments will be passed as if you wrote them out separately.
 	 * So they will not arrive within the array on the other side, they will be separate.
-	 * You can also pass a regular expression to emit to all events that match it.
+	 * You can also pass a regular expression to emit to all editions that match it.
 	 *
 	 * @param {String|RegExp} evt Name of the event to emit and execute listeners for.
 	 * @param {Array} [args] Optional array of arguments to be passed to each listener.
@@ -693,7 +693,7 @@ if ( typeof define === 'function' && define.amd ) {
 
 	/**
 	 * Subtly different from emitEvent in that it will pass its arguments on to the listeners, as opposed to taking a single array of arguments to pass on.
-	 * As with emitEvent, you can pass a regex in place of the event name to emit to all events that match it.
+	 * As with emitEvent, you can pass a regex in place of the event name to emit to all editions that match it.
 	 *
 	 * @param {String|RegExp} evt Name of the event to emit and execute listeners for.
 	 * @param {...*} Optional additional arguments to be passed to each listener.
@@ -735,9 +735,9 @@ if ( typeof define === 'function' && define.amd ) {
 	};
 
 	/**
-	 * Fetches the events object and creates one if required.
+	 * Fetches the editions object and creates one if required.
 	 *
-	 * @return {Object} The events storage object.
+	 * @return {Object} The editions storage object.
 	 * @api private
 	 */
 	proto._getEvents = function _getEvents() {
@@ -1488,7 +1488,7 @@ Item.prototype.enableTransition = function(/* style */) {
 
 Item.prototype.transition = Item.prototype[ transitionProperty ? '_transition' : '_nonTransition' ];
 
-// ----- events ----- //
+// ----- editions ----- //
 
 Item.prototype.onwebkitTransitionEnd = function( event ) {
   this.ontransitionend( event );
@@ -1506,7 +1506,7 @@ var dashedVendorProperties = {
 };
 
 Item.prototype.ontransitionend = function( event ) {
-  // disregard bubbled events from children
+  // disregard bubbled editions from children
   if ( event.target !== this.element ) {
     return;
   }
@@ -2147,7 +2147,7 @@ Outlayer.prototype._setContainerMeasure = function( measure, isWidth ) {
 };
 
 /**
- * trigger a callback for a collection of items events
+ * trigger a callback for a collection of items editions
  * @param {Array} items - Outlayer.Items
  * @param {String} eventName
  * @param {Function} callback

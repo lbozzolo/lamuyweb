@@ -1,11 +1,11 @@
 <?php
 
-namespace Ramiroquai\Http\Controllers;
+namespace Lamuy\Http\Controllers;
 
-use Ramiroquai\Http\Requests\CreateCategoryRequest;
-use Ramiroquai\Http\Requests\UpdateCategoryRequest;
-use Ramiroquai\Repositories\CategoryRepository;
-use Ramiroquai\Http\Controllers\AppBaseController as AppBaseController;
+use Lamuy\Http\Requests\CreateCategoryRequest;
+use Lamuy\Http\Requests\UpdateCategoryRequest;
+use Lamuy\Repositories\CategoryRepository;
+use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
 
 class CategoryController extends AppBaseController
 {

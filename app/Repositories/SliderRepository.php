@@ -1,13 +1,13 @@
 <?php
 
-namespace Ramiroquai\Repositories;
+namespace Lamuy\Repositories;
 
-use Ramiroquai\Models\Slider;
+use Lamuy\Models\Slider;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
  * Class SliderRepository
- * @package Ramiroquai\Repositories
+ * @package Lamuy\Repositories
  * @version September 6, 2018, 11:58 am UTC
  *
  * @method Slider findWithoutFail($id, $columns = ['*'])

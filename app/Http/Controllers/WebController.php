@@ -1,18 +1,18 @@
 <?php
 
-namespace Ramiroquai\Http\Controllers;
+namespace Lamuy\Http\Controllers;
 
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
-use Ramiroquai\Http\Controllers\AppBaseController as AppBaseController;
-use Ramiroquai\Http\Requests\ContactRequest;
-use Ramiroquai\Http\Requests\CreateApplicantRequest;
-use Ramiroquai\Models\Applicant;
-use Ramiroquai\Models\Category;
+use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
+use Lamuy\Http\Requests\ContactRequest;
+use Lamuy\Http\Requests\CreateApplicantRequest;
+use Lamuy\Models\Applicant;
+use Lamuy\Models\Category;
 use Illuminate\Support\Facades\Mail;
-use Ramiroquai\Models\Image;
-use Ramiroquai\Models\Slider;
-use Ramiroquai\Models\Work;
+use Lamuy\Models\Image;
+use Lamuy\Models\Slider;
+use Lamuy\Models\Work;
 
 class WebController extends AppBaseController
 {

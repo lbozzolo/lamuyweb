@@ -1,13 +1,13 @@
 <?php
 
-namespace Ramiroquai\Repositories;
+namespace Lamuy\Repositories;
 
-use Ramiroquai\User;
+use Lamuy\User;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
  * Class ColorRepository
- * @package Ramiroquai\Repositories
+ * @package Lamuy\Repositories
  * @version September 3, 2018, 10:45 pm UTC
  *
  * @method Color findWithoutFail($id, $columns = ['*'])

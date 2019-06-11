@@ -841,7 +841,7 @@ define(
         } else {
           startPos = endPos = null;
 
-          // Calculate start/end pos by checking for selected cells in grid events better with context menu
+          // Calculate start/end pos by checking for selected cells in grid editions better with context menu
           each(grid, function (row, y) {
             each(row, function (cell, x) {
               if (isCellSelected(cell)) {
@@ -2602,7 +2602,7 @@ define(
 
 /**
  * This class handles table column and row resizing by adding divs over the columns and rows of the table.
- * These divs are then manipulated using mouse events to resize the underlying table.
+ * These divs are then manipulated using mouse editions to resize the underlying table.
  *
  * @class tinymce.table.ui.ResizeBars
  * @private
@@ -3490,8 +3490,8 @@ define(
       function mouseDownHandler(e) {
         var target = e.target, body = editor.getBody();
 
-        // Since this code is working on global events we need to work on a global hoverTable state
-        // and make sure that the state is correct according to the events fired
+        // Since this code is working on global editions we need to work on a global hoverTable state
+        // and make sure that the state is correct according to the editions fired
         if (!editor.$.contains(body, hoverTable) && hoverTable !== body) {
           return;
         }

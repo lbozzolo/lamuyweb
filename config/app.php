@@ -173,20 +173,23 @@ return [
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Spatie\Fractal\FractalServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
-        Ramiroquai\Providers\AppServiceProvider::class,
-        Ramiroquai\Providers\AuthServiceProvider::class,
-        // Ramiroquai\Providers\BroadcastServiceProvider::class,
-        Ramiroquai\Providers\EventServiceProvider::class,
-        Ramiroquai\Providers\RouteServiceProvider::class,
+        Lamuy\Providers\AppServiceProvider::class,
+        Lamuy\Providers\AuthServiceProvider::class,
+        // Lamuy\Providers\BroadcastServiceProvider::class,
+        Lamuy\Providers\EventServiceProvider::class,
+        Lamuy\Providers\RouteServiceProvider::class,
         /*
          * GUI Interface - Generator Builder...
          */
         \InfyOm\GeneratorBuilder\GeneratorBuilderServiceProvider::class,
 
         Intervention\Image\ImageServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 
@@ -215,7 +218,7 @@ return [
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
-        'Event' => Illuminate\Support\Facades\Event::class,
+        'Edition' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,

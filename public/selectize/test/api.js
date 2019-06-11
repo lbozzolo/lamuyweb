@@ -647,17 +647,17 @@
 				test.selectize.destroy();
 				expect(test.selectize.$input[0].selectize).to.be.equal(undefined);
 			});
-			it('should unbind events on window', function() {
+			it('should unbind editions on window', function() {
 				var test = setup_test('<select>', {});
 				test.selectize.destroy();
 				expect(has_namespaced_event($(window), test.selectize.eventNS)).to.be.equal(false);
 			});
-			it('should unbind events on document', function() {
+			it('should unbind editions on document', function() {
 				var test = setup_test('<select>', {});
 				test.selectize.destroy();
 				expect(has_namespaced_event($(document), test.selectize.eventNS)).to.be.equal(false);
 			});
-			it('should unbind events on <body>', function() {
+			it('should unbind editions on <body>', function() {
 				var test = setup_test('<select>', {});
 				test.selectize.destroy();
 				expect(has_namespaced_event($('body'), test.selectize.eventNS)).to.be.equal(false);

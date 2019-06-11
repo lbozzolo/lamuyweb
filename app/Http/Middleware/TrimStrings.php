@@ -1,6 +1,6 @@
 <?php
 
-namespace Ramiroquai\Http\Middleware;
+namespace Lamuy\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as BaseTrimmer;
 

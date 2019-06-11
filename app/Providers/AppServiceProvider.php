@@ -1,6 +1,6 @@
 <?php
 
-namespace Ramiroquai\Providers;
+namespace Lamuy\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;

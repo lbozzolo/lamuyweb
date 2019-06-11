@@ -223,7 +223,7 @@ $.extend(Selectize.prototype, {
 
 		$document.on('mousedown' + eventNS, function(e) {
 			if (self.isFocused) {
-				// prevent events on the dropdown scrollbar from causing the control to blur
+				// prevent editions on the dropdown scrollbar from causing the control to blur
 				if (e.target === self.$dropdown[0] || e.target.parentNode === self.$dropdown[0]) {
 					return false;
 				}
@@ -319,7 +319,7 @@ $.extend(Selectize.prototype, {
 	},
 
 	/**
-	 * Maps fired events to callbacks provided
+	 * Maps fired editions to callbacks provided
 	 * in the settings used when creating the control.
 	 */
 	setupCallbacks: function() {

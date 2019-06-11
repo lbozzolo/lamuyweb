@@ -15,13 +15,15 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('staradmin/css/style.css') }}">
+    <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" type="text/css" />
+
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('images') }}" />
 
     <style type="text/css">
 
         .auth.auth-bg-1 {
-            background: url({{ asset('images/login-background.jpg') }});
+            background: url({{ asset('template-web/images/login.jpg') }});
             background-size: cover;
         }
 
@@ -38,7 +40,7 @@
                     <div class="auto-form-wrapper">
 
                         <div class="card-body text-center">
-                            <img src="{{ asset('images/logos/black-logo.png') }}" alt="logo" class="img-responsive" />
+                            <img src="{{ asset('images/logos/logo.png') }}" alt="logo" style="width: 100%" class="img-responsive" />
                         </div>
                         <div class="card-body">
                             <form action="{{ url('/login') }}" method="post">

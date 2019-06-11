@@ -31,7 +31,7 @@
 
     //easing portfolio scrolling
         $('.ic-close').on('click', function (event) {
-            var $anchor = $('#events');
+            var $anchor = $('#editions');
 
             $('html, body').stop().animate({
                 scrollTop: $($anchor).offset().top - 54

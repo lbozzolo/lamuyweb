@@ -1,8 +1,8 @@
 <?php
 
-namespace Ramiroquai\Http\Controllers\Auth;
+namespace Lamuy\Http\Controllers\Auth;
 
-use Ramiroquai\Http\Controllers\Controller;
+use Lamuy\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller

@@ -901,7 +901,7 @@
 	};
 	
 	/**
-	 * Debounce all fired events types listed in `types`
+	 * Debounce all fired editions types listed in `types`
 	 * while executing the provided `fn`.
 	 *
 	 * @param {object} self
@@ -927,7 +927,7 @@
 		fn.apply(self, []);
 		self.trigger = trigger;
 	
-		// trigger queued events
+		// trigger queued editions
 		for (type in event_args) {
 			if (event_args.hasOwnProperty(type)) {
 				trigger.apply(self, event_args[type]);
@@ -939,9 +939,9 @@
 	 * A workaround for http://bugs.jquery.com/ticket/6696
 	 *
 	 * @param {object} $parent - Parent element to listen on.
-	 * @param {string} event - Event name.
+	 * @param {string} event - Edition name.
 	 * @param {string} selector - Descendant selector to filter by.
-	 * @param {function} fn - Event handler.
+	 * @param {function} fn - Edition handler.
 	 */
 	var watchChildEvent = function($parent, event, selector, fn) {
 		$parent.on(event, selector, function(e) {
@@ -1350,7 +1350,7 @@
 	
 			$document.on('mousedown' + eventNS, function(e) {
 				if (self.isFocused) {
-					// prevent events on the dropdown scrollbar from causing the control to blur
+					// prevent editions on the dropdown scrollbar from causing the control to blur
 					if (e.target === self.$dropdown[0] || e.target.parentNode === self.$dropdown[0]) {
 						return false;
 					}
@@ -1446,7 +1446,7 @@
 		},
 	
 		/**
-		 * Maps fired events to callbacks provided
+		 * Maps fired editions to callbacks provided
 		 * in the settings used when creating the control.
 		 */
 		setupCallbacks: function() {

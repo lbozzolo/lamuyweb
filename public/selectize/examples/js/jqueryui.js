@@ -586,7 +586,7 @@ $.Widget.prototype = {
 				this.widgetFullName + "-disabled " +
 				"ui-state-disabled" );
 
-		// clean up events and states
+		// clean up editions and states
 		this.bindings.unbind( this.eventNamespace );
 		this.hoverable.removeClass( "ui-state-hover" );
 		this.focusable.removeClass( "ui-state-focus" );
@@ -702,7 +702,7 @@ $.Widget.prototype = {
 					.apply( instance, arguments );
 			}
 
-			// copy the guid so direct unbinding events
+			// copy the guid so direct unbinding editions
 			if ( typeof handler !== "string" ) {
 				handlerProxy.guid = handler.guid =
 					handler.guid || handlerProxy.guid || $.guid++;
@@ -879,7 +879,7 @@ $.widget("ui.mouse", {
 
 		var that = this,
 			btnIsLeft = (event.which === 1),
-			// event.target.nodeName events around a bug in IE 8 with
+			// event.target.nodeName editions around a bug in IE 8 with
 			// disabled inputs (#7620)
 			elIsCancel = (typeof this.options.cancel === "string" && event.target.nodeName ? $(event.target).closest(this.options.cancel).length : false);
 		if (!btnIsLeft || elIsCancel || !this._mouseCapture(event)) {
@@ -2274,7 +2274,7 @@ $.ui.ddmanager = {
 	},
 	dragStop: function( draggable, event ) {
 		draggable.element.parentsUntil( "body" ).unbind( "scroll.droppable" );
-		//Call prepareOffsets one final time since IE does not fire return scroll events when overflow was caused by drag (see #5003)
+		//Call prepareOffsets one final time since IE does not fire return scroll editions when overflow was caused by drag (see #5003)
 		if( !draggable.options.refreshPositions ) {
 			$.ui.ddmanager.prepareOffsets( draggable, event );
 		}
@@ -3569,7 +3569,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		//Let's determine the parent's offset
 		this.offset = this.element.offset();
 
-		//Initialize mouse events for interaction
+		//Initialize mouse editions for interaction
 		this._mouseInit();
 
 		//We're ready to go
@@ -3757,7 +3757,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		}
 
 
-		//Post "activate" events to possible containers
+		//Post "activate" editions to possible containers
 		if( !noActivation ) {
 			for ( i = this.containers.length - 1; i >= 0; i-- ) {
 				this.containers[ i ]._trigger( "activate", event, this._uiHash( this ) );
@@ -3854,7 +3854,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 			}
 
 			// Only put the placeholder inside the current Container, skip all
-			// items form other containers. This events because when moving
+			// items form other containers. This editions because when moving
 			// an item from one container to another the
 			// currentContainer is switched before the placeholder is moved.
 			//
@@ -3886,7 +3886,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 			}
 		}
 
-		//Post events to containers
+		//Post editions to containers
 		this._contactContainers(event);
 
 		//Interconnect with droppables
@@ -3949,7 +3949,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 				this.currentItem.show();
 			}
 
-			//Post deactivating events to containers
+			//Post deactivating editions to containers
 			for (var i = this.containers.length - 1; i >= 0; i--){
 				this.containers[i]._trigger("deactivate", null, this._uiHash(this));
 				if(this.containers[i].containerCache.over) {
@@ -3961,7 +3961,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		}
 
 		if (this.placeholder) {
-			//$(this.placeholder[0]).remove(); would have been the jQuery way - unfortunately, it unbinds ALL events from the original node!
+			//$(this.placeholder[0]).remove(); would have been the jQuery way - unfortunately, it unbinds ALL editions from the original node!
 			if(this.placeholder[0].parentNode) {
 				this.placeholder[0].parentNode.removeChild(this.placeholder[0]);
 			}
@@ -4646,7 +4646,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 	_clear: function(event, noPropagation) {
 
 		this.reverting = false;
-		// We delay all events that have to be triggered to after the point where the placeholder has been removed and
+		// We delay all editions that have to be triggered to after the point where the placeholder has been removed and
 		// everything else normalized again
 		var i,
 			delayedTriggers = [];
@@ -4677,7 +4677,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		}
 
 		// Check if the items Container has Changed and trigger appropriate
-		// events.
+		// editions.
 		if (this !== this.currentContainer) {
 			if(!noPropagation) {
 				delayedTriggers.push(function(event) { this._trigger("remove", event, this._uiHash()); });
@@ -4687,7 +4687,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		}
 
 
-		//Post events to containers
+		//Post editions to containers
 		for (i = this.containers.length - 1; i >= 0; i--){
 			if(!noPropagation) {
 				delayedTriggers.push((function(c) { return function(event) { c._trigger("deactivate", event, this._uiHash(this)); };  }).call(this, this.containers[i]));
@@ -4716,7 +4716,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 				this._trigger("beforeStop", event, this._uiHash());
 				for (i=0; i < delayedTriggers.length; i++) {
 					delayedTriggers[i].call(this, event);
-				} //Trigger all delayed events
+				} //Trigger all delayed editions
 				this._trigger("stop", event, this._uiHash());
 			}
 
@@ -4728,7 +4728,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 			this._trigger("beforeStop", event, this._uiHash());
 		}
 
-		//$(this.placeholder[0]).remove(); would have been the jQuery way - unfortunately, it unbinds ALL events from the original node!
+		//$(this.placeholder[0]).remove(); would have been the jQuery way - unfortunately, it unbinds ALL editions from the original node!
 		this.placeholder[0].parentNode.removeChild(this.placeholder[0]);
 
 		if(this.helper[0] !== this.currentItem[0]) {
@@ -4739,7 +4739,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		if(!noPropagation) {
 			for (i=0; i < delayedTriggers.length; i++) {
 				delayedTriggers[i].call(this, event);
-			} //Trigger all delayed events
+			} //Trigger all delayed editions
 			this._trigger("stop", event, this._uiHash());
 		}
 
@@ -5932,7 +5932,7 @@ $.fn.extend({
 			}
 
 			// If the element already has the correct final state, delegate to
-			// the core methods so the internal tracking of "olddisplay" events.
+			// the core methods so the internal tracking of "olddisplay" editions.
 			if ( elem.is( ":hidden" ) ? mode === "hide" : mode === "show" ) {
 				elem[ mode ]();
 				done();
@@ -6643,12 +6643,12 @@ $.widget( "ui.autocomplete", {
 	pending: 0,
 
 	_create: function() {
-		// Some browsers only repeat keydown events, not keypress events,
+		// Some browsers only repeat keydown editions, not keypress editions,
 		// so we use the suppressKeyPress flag to determine if we've already
 		// handled the keydown event. #7269
 		// Unfortunately the code for & in keypress is the same as the up arrow,
 		// so we use the suppressKeyPressRepeat flag to avoid handling keypress
-		// events when we know the keydown event was used to modify the
+		// editions when we know the keydown event was used to modify the
 		// search term. #7799
 		var suppressKeyPress, suppressKeyPressRepeat, suppressInput,
 			nodeName = this.element[0].nodeName.toLowerCase(),
@@ -6868,7 +6868,7 @@ $.widget( "ui.autocomplete", {
 				if ( this.element[0] !== this.document[0].activeElement ) {
 					this.element.focus();
 					this.previous = previous;
-					// #6109 - IE triggers two focus events and the second
+					// #6109 - IE triggers two focus editions and the second
 					// is asynchronous, so we need to reset the previous
 					// term synchronously and asynchronously :-(
 					this._delay(function() {
@@ -8363,7 +8363,7 @@ $.extend(Datepicker.prototype, {
 	/* Generate the date picker content. */
 	_updateDatepicker: function(inst) {
 		this.maxRows = 4; //Reset the max number of rows being displayed (see #7043)
-		instActive = inst; // for delegate hover events
+		instActive = inst; // for delegate hover editions
 		inst.dpDiv.empty().append(this._generateHTML(inst));
 		this._attachHandlers(inst);
 		inst.dpDiv.find("." + this._dayOverClass + " a").mouseover();
@@ -9551,7 +9551,7 @@ $.extend(Datepicker.prototype, {
 });
 
 /*
- * Bind hover events for datepicker elements.
+ * Bind hover editions for datepicker elements.
  * Done via delegate so the binding only occurs once in the lifetime of the parent div.
  * Global instActive, set by _updateDatepicker allows the handlers to find their way back to the active picker.
  */
@@ -14832,8 +14832,8 @@ $.widget( "ui.tooltip", {
 		// we have to check first to avoid defining a title if none exists
 		// (we don't want to cause an element to start matching [title])
 		//
-		// We use removeAttr only for key events, to allow IE to export the correct
-		// accessible attributes. For mouse events, set to empty string to avoid
+		// We use removeAttr only for key editions, to allow IE to export the correct
+		// accessible attributes. For mouse editions, set to empty string to avoid
 		// native tooltip showing up (happens only when removing inside mouseover).
 		if ( target.is( "[title]" ) ) {
 			if ( event && event.type === "mouseover" ) {

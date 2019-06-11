@@ -1,13 +1,13 @@
 <?php
 
-namespace Ramiroquai\Repositories;
+namespace Lamuy\Repositories;
 
-use Ramiroquai\Models\Image;
+use Lamuy\Models\Image;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
  * Class ImageRepository
- * @package Ramiroquai\Repositories
+ * @package Lamuy\Repositories
  * @version September 3, 2018, 10:53 pm UTC
  *
  * @method Image findWithoutFail($id, $columns = ['*'])

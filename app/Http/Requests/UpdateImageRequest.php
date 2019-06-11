@@ -1,9 +1,9 @@
 <?php
 
-namespace Ramiroquai\Http\Requests;
+namespace Lamuy\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Ramiroquai\Models\Image;
+use Lamuy\Models\Image;
 
 class UpdateImageRequest extends FormRequest
 {

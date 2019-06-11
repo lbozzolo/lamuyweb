@@ -119,7 +119,7 @@
         // Timeout function for hiding controls;
         this.hideBartimeout = false;
 
-        // To determine browser supports for touch events;
+        // To determine browser supports for touch editions;
         this.isTouch = ('ontouchstart' in document.documentElement);
 
         // Disable hideControlOnEnd if sildeEndAnimation is true
@@ -1308,7 +1308,7 @@
             $.removeData(_this.el, 'lightGallery');
         }
 
-        // Unbind all events added by lightGallery
+        // Unbind all editions added by lightGallery
         this.$el.off('.lg.tm');
 
         // Distroy all lightGallery modules
@@ -2329,7 +2329,7 @@
         Video.prototype.init = function() {
             var _this = this;
     
-            // Event triggered when video url found without poster
+            // Edition triggered when video url found without poster
             _this.core.$el.on('hasVideo.lg.tm', onHasVideo.bind(this));
     
             // Set max width for video
@@ -3118,7 +3118,7 @@
 
         var _this = this;
 
-        // Unbind all events added by lightGallery zoom plugin
+        // Unbind all editions added by lightGallery zoom plugin
         _this.core.$el.off('.lg.zoom');
         $(window).off('.lg.zoom');
         _this.core.$slide.off('.lg.zoom');

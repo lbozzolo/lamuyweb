@@ -116,7 +116,7 @@
         // Timeout function for hiding controls;
         this.hideBartimeout = false;
 
-        // To determine browser supports for touch events;
+        // To determine browser supports for touch editions;
         this.isTouch = ('ontouchstart' in document.documentElement);
 
         // Disable hideControlOnEnd if sildeEndAnimation is true
@@ -1305,7 +1305,7 @@
             $.removeData(_this.el, 'lightGallery');
         }
 
-        // Unbind all events added by lightGallery
+        // Unbind all editions added by lightGallery
         this.$el.off('.lg.tm');
 
         // Distroy all lightGallery modules

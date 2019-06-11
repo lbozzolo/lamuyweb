@@ -1,6 +1,6 @@
 <?php
 
-namespace Ramiroquai\Providers;
+namespace Lamuy\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,13 +13,13 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Ramiroquai\Events\Event' => [
-            'Ramiroquai\Listeners\EventListener',
+        'Lamuy\Events\Event' => [
+            'Lamuy\Listeners\EventListener',
         ],
     ];
 
     /**
-     * Register any events for your application.
+     * Register any editions for your application.
      *
      * @return void
      */

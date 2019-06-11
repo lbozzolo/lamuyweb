@@ -1,9 +1,9 @@
 <?php
 
-namespace Ramiroquai\Http\Requests;
+namespace Lamuy\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Ramiroquai\User;
+use Lamuy\User;
 
 class CreateUserRequest extends FormRequest
 {

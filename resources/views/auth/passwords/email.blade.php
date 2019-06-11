@@ -15,8 +15,20 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('staradmin/css/style.css') }}">
+    <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" type="text/css" />
+
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('staradmin/images/favicon.png') }}" />
+
+    <style type="text/css">
+
+        .auth.auth-bg-1 {
+            background: url({{ asset('template-web/images/login.jpg') }});
+            background-size: cover;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -28,10 +40,10 @@
                     <div class="auto-form-wrapper">
 
                         <div class="card-body text-center">
-                            <img src="{{ asset('images/logos/black-logo.png') }}" alt="logo" class="img-responsive" />
+                            <img src="{{ asset('images/logos/logo.png') }}" alt="logo" style="width: 100%" class="img-responsive" />
                         </div>
                         <div class="card-body">
-                            <p class="text-warning">Ingrese su email y le enviaremos un enlace para restaurar su contraseña.</p>
+                            <p class="text-success text-center">Ingrese su email y le enviaremos un enlace para restaurar su contraseña.</p>
                             <form action="{{ url('/password/email') }}" method="post">
                                 {!! csrf_field() !!}
 

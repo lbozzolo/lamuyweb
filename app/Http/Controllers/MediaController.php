@@ -1,11 +1,12 @@
 <?php
 
-namespace Ramiroquai\Http\Controllers;
+namespace Lamuy\Http\Controllers;
 
-use Ramiroquai\Http\Requests\CreateMediaRequest;
-use Ramiroquai\Repositories\MediaRepository;
-use Ramiroquai\Http\Controllers\AppBaseController as AppBaseController;
-use Ramiroquai\Models\Image;
+use Illuminate\Http\Request;
+use Lamuy\Http\Requests\CreateMediaRequest;
+use Lamuy\Repositories\MediaRepository;
+use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
+use Lamuy\Models\Image;
 
 class MediaController extends AppBaseController
 {
@@ -87,6 +88,20 @@ class MediaController extends AppBaseController
             return redirect()->back()->withErrors($this->store_failure_message);
 
         return redirect(route($this->modelPlural.'.index'))->with('ok', $this->store_success_message);
+    }
+
+    public function uploadImages(Request $request)
+    {
+        if($request->hasfile('filename'))
+        {
+
+            foreach($request->file('filename') as $image)
+            {
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name);
+                $data[] = $name;
+            }
+        }
     }
 
     public function destroy($id)

@@ -1,13 +1,13 @@
 <?php
 
-namespace Ramiroquai\Http\Controllers;
+namespace Lamuy\Http\Controllers;
 
-use Ramiroquai\Repositories\ImageRepository;
-use Ramiroquai\Http\Controllers\AppBaseController as AppBaseController;
+use Lamuy\Repositories\ImageRepository;
+use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Ramiroquai\Models\Image;
+use Lamuy\Models\Image;
 use Intervention\Image\Facades\Image as Intervention;
 
 class ImageController extends AppBaseController
@@ -42,6 +42,20 @@ class ImageController extends AppBaseController
 
         return response()->make(File::get($ruta),200)
             ->header('Content-Type', 'image/jpg');
+    }
+
+    public function verCover($file)
+    {
+        $ruta = storage_path("app/covers/".$file);
+
+        return response()->make(File::get($ruta),200)
+            ->header('Content-Type', 'image/jpg');
+    }
+
+    public function verPdf($file)
+    {
+        return response()->make(\Illuminate\Support\Facades\File::get(storage_path("app/".$file)),200)
+            ->header('Content-Type', 'application/pdf');
     }
 
     public function changeFileNameIfExists($file)
@@ -106,7 +120,7 @@ class ImageController extends AppBaseController
             $img_thumb = Intervention::make($request->file('img'))->resize(config('sistema.imagenes.WIDTH_THUMB'), config('sistema.imagenes.HEIGHT_THUMB'));
         }
 
-        $class = 'Ramiroquai\Models\\'.$class;
+        $class = 'Lamuy\Models\\'.$class;
         $model = $class::find($id);
 
         // Redirección si supera el máximo de fotos permitido

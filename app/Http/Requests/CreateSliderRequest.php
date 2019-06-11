@@ -1,9 +1,9 @@
 <?php
 
-namespace Ramiroquai\Http\Requests;
+namespace Lamuy\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Ramiroquai\Models\Slider;
+use Lamuy\Models\Slider;
 
 class CreateSliderRequest extends FormRequest
 {

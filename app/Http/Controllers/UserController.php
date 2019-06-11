@@ -1,11 +1,11 @@
 <?php
 
-namespace Ramiroquai\Http\Controllers;
+namespace Lamuy\Http\Controllers;
 
-use Ramiroquai\Http\Requests\CreateUserRequest;
-use Ramiroquai\Http\Requests\UpdateUserRequest;
-use Ramiroquai\Repositories\UserRepository;
-use Ramiroquai\Http\Controllers\AppBaseController as AppBaseController;
+use Lamuy\Http\Requests\CreateUserRequest;
+use Lamuy\Http\Requests\UpdateUserRequest;
+use Lamuy\Repositories\UserRepository;
+use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\Auth;

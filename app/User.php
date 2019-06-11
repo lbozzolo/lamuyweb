@@ -1,11 +1,13 @@
 <?php
 
-namespace Ramiroquai;
+namespace Lamuy;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Lamuy\Models\Comment;
+use Lamuy\Models\Like;
+use Lamuy\Models\Noticia;
 
 
 class User extends Authenticatable
@@ -66,4 +68,22 @@ class User extends Authenticatable
     {
         return $this->name . ' ' . $this->lastname;
     }
+
+    // Relationships
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function noticias()
+    {
+        return $this->hasMany(Noticia::class);
+    }
+
 }

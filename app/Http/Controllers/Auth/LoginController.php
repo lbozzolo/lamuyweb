@@ -1,10 +1,10 @@
 <?php
 
-namespace Ramiroquai\Http\Controllers\Auth;
+namespace Lamuy\Http\Controllers\Auth;
 
-use Ramiroquai\Http\Controllers\Controller;
-use Ramiroquai\Models\Medico;
-use Ramiroquai\User;
+use Lamuy\Http\Controllers\Controller;
+use Lamuy\Models\Medico;
+use Lamuy\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

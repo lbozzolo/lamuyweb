@@ -1,12 +1,12 @@
 <?php
 
-namespace Ramiroquai\Models;
+namespace Lamuy\Models;
 
-use Ramiroquai\Models\Entity as Entity;
+use Lamuy\Models\Entity as Entity;
 
 /**
  * Class Category
- * @package Ramiroquai\Models
+ * @package Lamuy\Models
  * @version September 3, 2018, 10:55 pm UTC
  *
  * @property string name

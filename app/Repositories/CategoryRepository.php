@@ -1,8 +1,8 @@
 <?php
 
-namespace Ramiroquai\Repositories;
+namespace Lamuy\Repositories;
 
-use Ramiroquai\Models\Category;
+use Lamuy\Models\Category;
 use InfyOm\Generator\Common\BaseRepository;
 
 class CategoryRepository extends BaseRepository

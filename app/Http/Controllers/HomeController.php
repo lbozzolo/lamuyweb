@@ -1,11 +1,12 @@
 <?php
 
-namespace Ramiroquai\Http\Controllers;
+namespace Lamuy\Http\Controllers;
 
-use Ramiroquai\Models\Category;
-use Ramiroquai\Models\Work;
-use Ramiroquai\Models\Noticia;
-use Ramiroquai\Models\Servicio;
+use Lamuy\Models\Category;
+use Lamuy\Models\Magazine;
+use Lamuy\Models\Work;
+use Lamuy\Models\Noticia;
+use Lamuy\Models\Servicio;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -18,6 +19,10 @@ class HomeController extends Controller
     public function index()
     {
         $data = '';
+
+//        $magazine = Magazine::find(10);
+//        $url = storage_path('app/covers/'.$magazine->url_cover);
+//        dd($url);
         return view('home')->with($data);
     }
 }

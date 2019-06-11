@@ -1,12 +1,12 @@
 <?php
 
-namespace Ramiroquai\Http\Controllers;
+namespace Lamuy\Http\Controllers;
 
-use Ramiroquai\Http\Requests\CreateSliderRequest;
-use Ramiroquai\Http\Requests\UpdateSliderRequest;
-use Ramiroquai\Repositories\SliderRepository;
-use Ramiroquai\Http\Controllers\AppBaseController as AppBaseController;
-use Ramiroquai\Models\Slider;
+use Lamuy\Http\Requests\CreateSliderRequest;
+use Lamuy\Http\Requests\UpdateSliderRequest;
+use Lamuy\Repositories\SliderRepository;
+use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
+use Lamuy\Models\Slider;
 
 class SliderController extends AppBaseController
 {

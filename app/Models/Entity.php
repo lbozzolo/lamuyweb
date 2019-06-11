@@ -1,21 +1,22 @@
 <?php
 
-namespace Ramiroquai\Models;
+namespace Lamuy\Models;
 
+use Carbon\Carbon;
 use Eloquent as Model;
-use Ramiroquai\Models\Image as Image;
+use Lamuy\Models\Image as Image;
 
 class Entity extends Model
 {
 
     public function getFechaCreadoAttribute()
     {
-        return date_format($this->attributes('created_at'),"d/m/Y");
+        return Carbon::parse($this->attributes['created_at'])->format('d-m-Y');
     }
 
     public function getFechaEditadoAttribute()
     {
-        return date_format($this->attributes('updated_at'),"d/m/Y");
+        return Carbon::parse($this->attributes['updated_at'])->format('d-m-Y');
     }
 
     public function images()

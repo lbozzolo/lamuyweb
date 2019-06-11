@@ -1,12 +1,12 @@
 <?php
 
-namespace Ramiroquai\Models;
+namespace Lamuy\Models;
 
 use Eloquent as Model;
 
 /**
  * Class Image
- * @package Ramiroquai\Models
+ * @package Lamuy\Models
  * @version September 3, 2018, 10:53 pm UTC
  *
  * @property string path
@@ -69,6 +69,11 @@ class Image extends Model
     public function imageable()
     {
         return $this->morphTo();
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(Album::class);
     }
 
     

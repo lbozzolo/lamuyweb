@@ -1,0 +1,35 @@
+/*.btn-primary {*/
+    /*background-color: magenta;*/
+    /*border-color: darkred;*/
+/*}*/
+
+/*.btn-primary:hover {*/
+    /*background-color: darkmagenta;*/
+    /*border-color: darkred;*/
+/*}*/
+
+/*.btn-default {*/
+    /*color: magenta;*/
+/*}*/
+
+/*.btn-default:hover {*/
+    /*color: darkmagenta;*/
+/*}*/
+
+.text-warning {
+    color: darkmagenta!important;
+}
+
+.active a span{
+    color: magenta!important;
+}
+
+.active a i{
+    color: magenta!important;
+}
+
+.content-wrapper {
+    /*background-color: #FCF7FC!important;*/
+    /*background-color: #F6F4FB!important;*/
+    /*background-color: #F3F2F7!important;*/
+}

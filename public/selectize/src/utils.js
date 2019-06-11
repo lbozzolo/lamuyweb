@@ -125,7 +125,7 @@ var debounce = function(fn, delay) {
 };
 
 /**
- * Debounce all fired events types listed in `types`
+ * Debounce all fired editions types listed in `types`
  * while executing the provided `fn`.
  *
  * @param {object} self
@@ -151,7 +151,7 @@ var debounce_events = function(self, types, fn) {
 	fn.apply(self, []);
 	self.trigger = trigger;
 
-	// trigger queued events
+	// trigger queued editions
 	for (type in event_args) {
 		if (event_args.hasOwnProperty(type)) {
 			trigger.apply(self, event_args[type]);
@@ -163,9 +163,9 @@ var debounce_events = function(self, types, fn) {
  * A workaround for http://bugs.jquery.com/ticket/6696
  *
  * @param {object} $parent - Parent element to listen on.
- * @param {string} event - Event name.
+ * @param {string} event - Edition name.
  * @param {string} selector - Descendant selector to filter by.
- * @param {function} fn - Event handler.
+ * @param {function} fn - Edition handler.
  */
 var watchChildEvent = function($parent, event, selector, fn) {
 	$parent.on(event, selector, function(e) {

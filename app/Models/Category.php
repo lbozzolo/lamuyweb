@@ -1,12 +1,12 @@
 <?php
 
-namespace Ramiroquai\Models;
+namespace Lamuy\Models;
 
-use Ramiroquai\Models\Entity as Entity;
+use Lamuy\Models\Entity as Entity;
 
 /**
  * Class Category
- * @package Ramiroquai\Models
+ * @package Lamuy\Models
  * @version September 3, 2018, 10:55 pm UTC
  *
  * @property string name
@@ -40,9 +40,9 @@ class Category extends Entity
         'name' => 'required'
     ];
 
-    public function applicants()
+    public function noticias()
     {
-        return $this->belongsToMany(Applicant::class, 'applicants_categories');
+        return $this->belongsToMany(Noticia::class, 'categories_noticias');
     }
 
     

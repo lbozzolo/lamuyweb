@@ -1,9 +1,9 @@
 <?php
 
-namespace Ramiroquai\Http\Controllers\Auth;
+namespace Lamuy\Http\Controllers\Auth;
 
-use Ramiroquai\User;
-use Ramiroquai\Http\Controllers\Controller;
+use Lamuy\User;
+use Lamuy\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
