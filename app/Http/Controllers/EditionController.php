@@ -84,8 +84,10 @@ class EditionController extends AppBaseController
 
         if($request->file('url_pdf')){
             $file = $request->file('url_pdf');
-            $nombre = $file->getClientOriginalName();
-            Storage::disk('local')->put($nombre,  File::get($file));
+
+            $nombre = $this->changeFileNameIfExists($file);
+
+            Storage::disk('public_pdf')->put($nombre,  File::get($file));
 
             $item->url_pdf = $nombre;
             $item->save();
@@ -93,10 +95,11 @@ class EditionController extends AppBaseController
 
         if($request->file('url_cover')){
             $file = $request->file('url_cover');
-            $nombre = $file->getClientOriginalName();
+
+            $nombre = $this->changeFileNameIfExists($file);
 
             $image = Intervention::make($file)->resize(472.5, 827)->encode('jpg', 50);
-            $image->save(storage_path('app/covers/'). $nombre);
+            $image->save(public_path('covers/'). $nombre);
 
             //Storage::disk('local')->put('covers/'.$nombre,  File::get($file));
 
@@ -135,6 +138,7 @@ class EditionController extends AppBaseController
         $this->data['item'] = $this->repo->findWithoutFail($id);
         $this->data['items'] = $this->repo->all();
 
+
         $input = $request->except(['url_pdf', 'url_cover']);
         $input['date'] = Carbon::parse('01-'.$request->date)->format('Y-m-d');
 
@@ -145,8 +149,10 @@ class EditionController extends AppBaseController
 
         if($request->file('url_pdf')){
             $file = $request->file('url_pdf');
-            $nombre = $file->getClientOriginalName();
-            Storage::disk('local')->put($nombre,  File::get($file));
+
+            $nombre = $this->changeFileNameIfExists($file);
+
+            Storage::disk('public_pdf')->put($nombre,  File::get($file));
 
             $this->data['item']->url_pdf = $nombre;
             $this->data['item']->save();
@@ -154,10 +160,11 @@ class EditionController extends AppBaseController
 
         if($request->file('url_cover')){
             $file = $request->file('url_cover');
-            $nombre = $file->getClientOriginalName();
+
+            $nombre = $this->changeFileNameIfExists($file);
 
             $image = Intervention::make($file)->resize(472.5, 827)->encode('jpg', 50);
-            $image->save(storage_path('app/covers/'). $nombre);
+            $image->save(public_path('covers/'). $nombre);
 
             //Storage::disk('local')->put('covers/'.$nombre,  File::get($file));
 
@@ -208,6 +215,16 @@ class EditionController extends AppBaseController
         $this->data['item']->save();
 
         return redirect(route($this->modelPlural.'.edit', $this->data['item']->id));
+    }
+
+    public function changeFileNameIfExists($file)
+    {
+        $nombre = $file->getClientOriginalName();
+        $extension = $file->guessExtension();
+
+        $nombre = preg_replace('/\\.[^.\\s]{3,4}$/', '', $nombre) . '-' . str_random(18) . '.' . $extension;
+
+        return $nombre;
     }
 
 }

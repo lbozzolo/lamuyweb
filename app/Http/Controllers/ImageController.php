@@ -46,7 +46,7 @@ class ImageController extends AppBaseController
 
     public function verCover($file)
     {
-        $ruta = storage_path("app/covers/".$file);
+        $ruta = public_path("covers/".$file);
 
         return response()->make(File::get($ruta),200)
             ->header('Content-Type', 'image/jpg');

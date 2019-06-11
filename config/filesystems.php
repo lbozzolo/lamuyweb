@@ -55,6 +55,16 @@ return [
             'visibility' => 'public',
         ],
 
+        'public_pdf' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/pdf',
+        ],
+
+        'public_cover' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/covers',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_KEY'),
