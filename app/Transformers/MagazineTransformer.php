@@ -20,8 +20,8 @@ class MagazineTransformer extends TransformerAbstract
             'description' => ($magazine->description)? (string)$magazine->description : null,
             'number' => (int)$magazine->number,
             'date' => ($magazine->date)? (string)Carbon::parse($magazine->date)->format('m-Y') : null,
-            'url_pdf' => ($magazine->url_pdf)? (string)url('storage/app/'.$magazine->url_pdf) : null,
-            'url_cover' => ($magazine->url_cover)? (string)url('storage/app/covers/'.$magazine->url_cover) : null,
+            'url_pdf' => ($magazine->url_pdf)? (string)url('pdf/'.$magazine->url_pdf) : null,
+            'url_cover' => ($magazine->url_cover)? (string)url('covers/'.$magazine->url_cover) : null,
         ];
     }
 }
