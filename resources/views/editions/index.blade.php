@@ -21,11 +21,21 @@
                 <ul class="list-unstyled list-inline row">
                     @foreach($items as $item)
                         <li class="list-group-item col-lg-2">
+
+                            @if($item->url_cover)
+                                <a href="{!! route($modelPlural.'.show', $item->id) !!}" class="text-dark">
+                                    <img src="{{ route('cover.ver', $item->url_cover) }}" class="img-responsive" style="width: 100%">
+                                </a>
+                            @else
+                                <div style="border: 2px dotted lightgrey; height: 90%; padding: 20px 30px; margin-bottom: 10px">
+                                    <p class="text-default">No hay imagen <br>de portada.</p>
+                                </div>
+                            @endif
                             <a href="{!! route($modelPlural.'.show', $item->id) !!}" class="text-dark">
-                                <img src="{{ route('cover.ver', $item->url_cover) }}" class="img-responsive" style="width: 100%">
                                 <span class="badge badge-dark"># {!! $item->number !!}</span>
                                 <span>{!! $item->title !!}</span>
                             </a>
+
                         </li>
                     @endforeach
                 </ul>

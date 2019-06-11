@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Lamuy\Http\Requests\CreateEditionRequest;
 use Lamuy\Http\Requests\UpdateEditionRequest;
+use Intervention\Image\Facades\Image as Intervention;
 use Lamuy\Models\Edition;
 use Lamuy\Repositories\EditionRepository;
 use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
@@ -93,7 +94,11 @@ class EditionController extends AppBaseController
         if($request->file('url_cover')){
             $file = $request->file('url_cover');
             $nombre = $file->getClientOriginalName();
-            Storage::disk('local')->put('covers/'.$nombre,  File::get($file));
+
+            $image = Intervention::make($file)->resize(350, 500)->encode('jpg', 50);
+            $image->save(storage_path('app/covers/'). $nombre);
+
+            //Storage::disk('local')->put('covers/'.$nombre,  File::get($file));
 
             $item->url_cover = $nombre;
             $item->save();
@@ -150,7 +155,11 @@ class EditionController extends AppBaseController
         if($request->file('url_cover')){
             $file = $request->file('url_cover');
             $nombre = $file->getClientOriginalName();
-            Storage::disk('local')->put('covers/'.$nombre,  File::get($file));
+
+            $image = Intervention::make($file)->resize(350, 500)->encode('jpg', 50);
+            $image->save(storage_path('app/covers/'). $nombre);
+
+            //Storage::disk('local')->put('covers/'.$nombre,  File::get($file));
 
             $this->data['item']->url_cover = $nombre;
             $this->data['item']->save();
