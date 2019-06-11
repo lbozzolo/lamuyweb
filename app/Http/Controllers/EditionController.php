@@ -95,7 +95,7 @@ class EditionController extends AppBaseController
             $file = $request->file('url_cover');
             $nombre = $file->getClientOriginalName();
 
-            $image = Intervention::make($file)->resize(350, 500)->encode('jpg', 50);
+            $image = Intervention::make($file)->resize(472.5, 827)->encode('jpg', 50);
             $image->save(storage_path('app/covers/'). $nombre);
 
             //Storage::disk('local')->put('covers/'.$nombre,  File::get($file));
@@ -156,7 +156,7 @@ class EditionController extends AppBaseController
             $file = $request->file('url_cover');
             $nombre = $file->getClientOriginalName();
 
-            $image = Intervention::make($file)->resize(350, 500)->encode('jpg', 50);
+            $image = Intervention::make($file)->resize(472.5, 827)->encode('jpg', 50);
             $image->save(storage_path('app/covers/'). $nombre);
 
             //Storage::disk('local')->put('covers/'.$nombre,  File::get($file));
