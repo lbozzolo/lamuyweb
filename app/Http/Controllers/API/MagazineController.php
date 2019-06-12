@@ -14,6 +14,13 @@ class MagazineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        header('Access-Control-Allow-Origin: *');
+
+    }
+
     public function index()
     {
         $model = new Magazine();
