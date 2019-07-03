@@ -166,7 +166,7 @@ class EditionController extends AppBaseController
             $image = Intervention::make($file)->resize(472.5, 827)->encode('jpg', 50);
             $image->save(public_path('covers/'). $nombre);
 
-            //Storage::disk('local')->put('covers/'.$nombre,  File::get($file));
+            Storage::disk('public_cover')->put($nombre,  File::get($file));
 
             $this->data['item']->url_cover = $nombre;
             $this->data['item']->save();
