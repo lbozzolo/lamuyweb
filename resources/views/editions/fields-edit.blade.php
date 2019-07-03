@@ -2,6 +2,8 @@
 
 @if($item->url_cover)
     <div class="col-lg-4 text-right">
+{{--        <img src="{{ route('cover.ver', $item->url_cover) }}" class="img-responsive" style="width: 100%">--}}
+{{--        <img src="{{ asset('covers/'.$item->url_cover) }}" class="img-responsive" style="width: 100%">--}}
         <img src="{{ route('cover.ver', $item->url_cover) }}" class="img-responsive" style="width: 100%">
     </div>
 @else

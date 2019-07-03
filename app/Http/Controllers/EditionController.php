@@ -164,9 +164,10 @@ class EditionController extends AppBaseController
             $nombre = $this->changeFileNameIfExists($file);
 
             $image = Intervention::make($file)->resize(472.5, 827)->encode('jpg', 50);
+
             $image->save(public_path('covers/'). $nombre);
 
-            Storage::disk('public_cover')->put($nombre,  File::get($file));
+            //Storage::disk('public_cover')->put($nombre,  File::get($file));
 
             $this->data['item']->url_cover = $nombre;
             $this->data['item']->save();
@@ -219,10 +220,16 @@ class EditionController extends AppBaseController
 
     public function changeFileNameIfExists($file)
     {
-        $nombre = $file->getClientOriginalName();
+        $regEx = '/\\.[^.\\s]{3,4}$/';
+        $string_random = str_random(28);
+
+        $originalName = $file->getClientOriginalName();
         $extension = $file->guessExtension();
 
-        $nombre = preg_replace('/\\.[^.\\s]{3,4}$/', '', $nombre) . '-' . str_random(18) . '.' . $extension;
+        $nombre = preg_replace($regEx, '', $originalName) . '-' . $string_random . '.' . $extension;
+        $nombre = str_replace(' ','',$nombre);
+        $nombre = str_replace_array('#', ['x'], $nombre);
+        $nombre = strtolower($nombre);
 
         return $nombre;
     }
