@@ -54,7 +54,7 @@ class ImageController extends AppBaseController
 
     public function verPdf($file)
     {
-        return response()->make(\Illuminate\Support\Facades\File::get(storage_path("app/".$file)),200)
+        return response()->make(\Illuminate\Support\Facades\File::get(public_path("pdf/".$file)),200)
             ->header('Content-Type', 'application/pdf');
     }
 
