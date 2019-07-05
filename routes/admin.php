@@ -78,10 +78,10 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'ImageController@verCover'
     ]);
 
-    Route::get('pdf/{file}', [
-        'as' => 'pdf.ver',
-        'uses' => 'ImageController@verPdf'
-    ]);
+//    Route::get('pdf/{file}', [
+//        'as' => 'pdf.ver',
+//        'uses' => 'ImageController@verPdf'
+//    ]);
 
     Route::get('social&medias', [
         'as' => 'images.index',

@@ -23,3 +23,7 @@ Route::resource('magazines', 'MagazineController', ['only' => ['index', 'show']]
 
 });
 
+Route::get('pdf/{file}', [
+    'as' => 'pdf.ver',
+    'uses' => 'ImageController@verPdf'
+]);
