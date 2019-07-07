@@ -6,15 +6,16 @@ use Lamuy\Models\Entity as Entity;
 
 class Noticia extends Entity
 {
-    public $table = 'noticias';
-
     public $fillable = [
         'title',
+        'copete',
         'body',
         'type_id',
         'highlight',
         'user_id',
     ];
+
+    public $table = 'noticias';
 
     public static $rules = [
         'title' => 'required|max:255'

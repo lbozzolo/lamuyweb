@@ -23,3 +23,13 @@
     </div>
 
 @endsection
+
+@section('js')
+
+    <script>
+        $('.summernote').summernote({
+            height: 300
+        });
+    </script>
+
+@endsection

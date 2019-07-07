@@ -49,6 +49,13 @@
 <link rel="stylesheet" href="{{ asset('summernote/dist/summernote.css') }}" />
 
 
+<style type="text/css">
+
+    body .popover{display:none !important; }
+
+</style>
+
+
 @yield('css')
 
 

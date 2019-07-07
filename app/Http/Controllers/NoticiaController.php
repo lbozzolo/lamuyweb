@@ -64,6 +64,7 @@ class NoticiaController extends AppBaseController
     public function store(CreateNoticiaRequest $request)
     {
         $input = $request->all();
+        dd($input);
         $input['slug'] = str_slug($input['name'], '.');
 
         $this->data['item'] = $this->repo->create($input);
