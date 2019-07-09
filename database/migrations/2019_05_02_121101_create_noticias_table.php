@@ -18,7 +18,8 @@ class CreateNoticiasTable extends Migration
 
             $table->increments('id');
             $table->string('title');
-            $table->text('copete')->nullable();
+            $table->text('epigrafe')->nullable();
+            $table->text('bajada')->nullable();
             $table->text('body')->nullable();
             $table->integer('type_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();

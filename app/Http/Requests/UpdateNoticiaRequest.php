@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Http\Requests;
+namespace LamuyWeb\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Lamuy\Models\Noticia;
+use LamuyWeb\Models\Noticia;
 
 class UpdateNoticiaRequest extends FormRequest
 {

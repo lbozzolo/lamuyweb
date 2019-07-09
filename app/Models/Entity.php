@@ -1,10 +1,10 @@
 <?php
 
-namespace Lamuy\Models;
+namespace LamuyWeb\Models;
 
 use Carbon\Carbon;
-use Eloquent as Model;
-use Lamuy\Models\Image as Image;
+use Illuminate\Database\Eloquent\Model as Model;
+use LamuyWeb\Models\Image as Image;
 
 class Entity extends Model
 {
@@ -27,6 +27,11 @@ class Entity extends Model
     public function mainImage()
     {
         return $this->images()->where('main', 1)->first();
+    }
+
+    public function mainImageThumb()
+    {
+        return ($this->imagesThumb()->where('main', 1)->first())? $this->imagesThumb()->where('main', 1)->first() : $this->imagesThumb->first();
     }
 
     public function imagesThumb()

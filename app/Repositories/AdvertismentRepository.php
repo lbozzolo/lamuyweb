@@ -1,8 +1,8 @@
 <?php
 
-namespace Lamuy\Repositories;
+namespace LamuyWeb\Repositories;
 
-use Lamuy\Models\Advertisment;
+use LamuyWeb\Models\Advertisment;
 use InfyOm\Generator\Common\BaseRepository;
 
 class AdvertismentRepository extends BaseRepository

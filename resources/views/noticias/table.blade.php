@@ -1,14 +1,25 @@
 <table class="table datatables">
     <thead>
         <tr>
-            <th>Nombre</th>
+            <th>Título</th>
+            <th>Categorías</th>
+            <th>Autor</th>
             <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
     @foreach($items as $item)
         <tr>
-            <td>{!! $item->name !!}</td>
+            <td>{!! $item->title !!}</td>
+            <td>
+                @forelse($item->categories as $category)
+                    <span class="badge badge-info">{!! $category->name !!}</span>
+                @empty
+                    <small class="text-secondary">sin categorías</small>
+                @endforelse
+            </td>
+            <td>{!! $item->user->full_name !!}</td>
+            <td>{!! $item->fecha_creado !!}</td>
             <td>
 
                 <div class='btn-group'>

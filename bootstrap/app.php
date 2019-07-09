@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    Lamuy\Http\Kernel::class
+    LamuyWeb\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    Lamuy\Console\Kernel::class
+    LamuyWeb\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Lamuy\Exceptions\Handler::class
+    LamuyWeb\Exceptions\Handler::class
 );
 
 /*

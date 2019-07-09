@@ -1,8 +1,8 @@
 <?php
 
-namespace Lamuy\Repositories;
+namespace LamuyWeb\Repositories;
 
-use Lamuy\Models\Album;
+use LamuyWeb\Models\Album;
 use InfyOm\Generator\Common\BaseRepository;
 
 class AlbumRepository extends BaseRepository

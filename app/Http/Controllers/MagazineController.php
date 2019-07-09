@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Traits\ApiResponser;
-use Lamuy\Models\Magazine;
+use LamuyWeb\Traits\ApiResponser;
+use LamuyWeb\Models\Magazine;
 
 class MagazineController extends Controller
 {

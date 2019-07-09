@@ -1,11 +1,11 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Http\Requests\CreateCommentRequest;
-use Lamuy\Http\Requests\UpdateCommentRequest;
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
-use Lamuy\Repositories\CommentRepository;
+use LamuyWeb\Http\Requests\CreateCommentRequest;
+use LamuyWeb\Http\Requests\UpdateCommentRequest;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Repositories\CommentRepository;
 
 class CommentController extends AppBaseController
 {

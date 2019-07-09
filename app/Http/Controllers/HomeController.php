@@ -1,12 +1,12 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Models\Category;
-use Lamuy\Models\Magazine;
-use Lamuy\Models\Work;
-use Lamuy\Models\Noticia;
-use Lamuy\Models\Servicio;
+use LamuyWeb\Models\Category;
+use LamuyWeb\Models\Magazine;
+use LamuyWeb\Models\Work;
+use LamuyWeb\Models\Noticia;
+use LamuyWeb\Models\Servicio;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller

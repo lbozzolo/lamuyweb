@@ -1,8 +1,8 @@
 <?php
 
-namespace Lamuy\Repositories;
+namespace LamuyWeb\Repositories;
 
-use Lamuy\Models\Edition;
+use LamuyWeb\Models\Edition;
 use InfyOm\Generator\Common\BaseRepository;
 
 class EditionRepository extends BaseRepository

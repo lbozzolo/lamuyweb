@@ -1,11 +1,11 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
-use Lamuy\Http\Requests\CreateTypeRequest;
-use Lamuy\Http\Requests\UpdateTypeRequest;
-use Lamuy\Repositories\TypeRepository;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Http\Requests\CreateTypeRequest;
+use LamuyWeb\Http\Requests\UpdateTypeRequest;
+use LamuyWeb\Repositories\TypeRepository;
 
 class TypeController extends AppBaseController
 {

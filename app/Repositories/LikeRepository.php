@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Repositories;
+namespace LamuyWeb\Repositories;
 
 use InfyOm\Generator\Common\BaseRepository;
-use Lamuy\Models\Like;
+use LamuyWeb\Models\Like;
 
 class LikeRepository extends BaseRepository
 {

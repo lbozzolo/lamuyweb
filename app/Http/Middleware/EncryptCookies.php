@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamuy\Http\Middleware;
+namespace LamuyWeb\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 

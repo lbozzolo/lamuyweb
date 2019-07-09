@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamuy\Traits;
+namespace LamuyWeb\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;

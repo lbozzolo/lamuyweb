@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Http\Controllers\Auth;
+namespace LamuyWeb\Http\Controllers\Auth;
 
-use Lamuy\User;
-use Lamuy\Http\Controllers\Controller;
+use LamuyWeb\User;
+use LamuyWeb\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 

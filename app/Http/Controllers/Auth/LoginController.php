@@ -1,10 +1,10 @@
 <?php
 
-namespace Lamuy\Http\Controllers\Auth;
+namespace LamuyWeb\Http\Controllers\Auth;
 
-use Lamuy\Http\Controllers\Controller;
-use Lamuy\Models\Medico;
-use Lamuy\User;
+use LamuyWeb\Http\Controllers\Controller;
+use LamuyWeb\Models\Medico;
+use LamuyWeb\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Lamuy\Http\Requests\CreateMediaRequest;
-use Lamuy\Repositories\MediaRepository;
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
-use Lamuy\Models\Image;
+use LamuyWeb\Http\Requests\CreateMediaRequest;
+use LamuyWeb\Repositories\MediaRepository;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Models\Image;
 
 class MediaController extends AppBaseController
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
 use InfyOm\Generator\Utils\ResponseUtil;
 use Response;

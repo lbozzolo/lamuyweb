@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Http\Requests;
+namespace LamuyWeb\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Lamuy\Models\Category;
+use LamuyWeb\Models\Category;
 
 class CreateCategoryRequest extends FormRequest
 {

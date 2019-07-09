@@ -1,11 +1,11 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Http\Requests\CreateAlbumRequest;
-use Lamuy\Http\Requests\UpdateAlbumRequest;
-use Lamuy\Repositories\AlbumRepository;
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Http\Requests\CreateAlbumRequest;
+use LamuyWeb\Http\Requests\UpdateAlbumRequest;
+use LamuyWeb\Repositories\AlbumRepository;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
 
 class AlbumController extends AppBaseController
 {

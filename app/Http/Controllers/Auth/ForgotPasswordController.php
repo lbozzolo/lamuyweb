@@ -1,8 +1,8 @@
 <?php
 
-namespace Lamuy\Http\Controllers\Auth;
+namespace LamuyWeb\Http\Controllers\Auth;
 
-use Lamuy\Http\Controllers\Controller;
+use LamuyWeb\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

@@ -1,11 +1,11 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Http\Requests\CreateUserRequest;
-use Lamuy\Http\Requests\UpdateUserRequest;
-use Lamuy\Repositories\UserRepository;
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Http\Requests\CreateUserRequest;
+use LamuyWeb\Http\Requests\UpdateUserRequest;
+use LamuyWeb\Repositories\UserRepository;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\Auth;

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlbumsTable extends Migration
+class CreateGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateAlbumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('albums', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-
+        Schema::create('galleries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('description');
 
-            $table->index('id');
+            $table->string('name');
+            $table->tinyInteger('active')->nullable();
 
+            $table->softDeletes()->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateAlbumsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('albums');
+        Schema::dropIfExists('galleries');
     }
 }

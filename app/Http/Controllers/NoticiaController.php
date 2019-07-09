@@ -1,11 +1,12 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
-use Lamuy\Http\Requests\CreateNoticiaRequest;
-use Lamuy\Http\Requests\UpdateNoticiaRequest;
-use Lamuy\Repositories\NoticiaRepository;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Http\Requests\CreateNoticiaRequest;
+use LamuyWeb\Http\Requests\UpdateNoticiaRequest;
+use LamuyWeb\Models\Category;
+use LamuyWeb\Repositories\NoticiaRepository;
 
 class NoticiaController extends AppBaseController
 {
@@ -58,14 +59,15 @@ class NoticiaController extends AppBaseController
 
     public function create()
     {
+        $this->data['categories'] = Category::pluck('name', 'id');
         return view($this->modelPlural.'.create')->with($this->data);
     }
 
     public function store(CreateNoticiaRequest $request)
     {
         $input = $request->all();
-        dd($input);
-        $input['slug'] = str_slug($input['name'], '.');
+
+        //dd($input);
 
         $this->data['item'] = $this->repo->create($input);
 
@@ -78,6 +80,7 @@ class NoticiaController extends AppBaseController
     public function edit($id)
     {
         $this->data['item'] = $this->repo->findWithoutFail($id);
+        $this->data['categories'] = Category::pluck('name', 'id');
 
         if (empty($this->data['item']))
             return redirect()->back()->withErrors($this->show_failure_message);
@@ -93,7 +96,6 @@ class NoticiaController extends AppBaseController
             return redirect()->back()->withErrors($this->update_failure_message);
 
         $input = $request->all();
-        $input['slug'] = str_slug($input['name'], '.');
 
         $this->repo->update($input, $id);
 

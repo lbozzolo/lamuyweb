@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Http\Requests;
+namespace LamuyWeb\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Lamuy\Models\Edition;
+use LamuyWeb\Models\Edition;
 
 class CreateEditionRequest extends FormRequest
 {

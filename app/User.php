@@ -1,13 +1,13 @@
 <?php
 
-namespace Lamuy;
+namespace LamuyWeb;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Lamuy\Models\Comment;
-use Lamuy\Models\Like;
-use Lamuy\Models\Noticia;
+use LamuyWeb\Models\Comment;
+use LamuyWeb\Models\Like;
+use LamuyWeb\Models\Noticia;
 
 
 class User extends Authenticatable

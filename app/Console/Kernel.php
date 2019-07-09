@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamuy\Console;
+namespace LamuyWeb\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

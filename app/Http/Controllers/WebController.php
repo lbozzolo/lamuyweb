@@ -1,18 +1,18 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
-use Lamuy\Http\Requests\ContactRequest;
-use Lamuy\Http\Requests\CreateApplicantRequest;
-use Lamuy\Models\Applicant;
-use Lamuy\Models\Category;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Http\Requests\ContactRequest;
+use LamuyWeb\Http\Requests\CreateApplicantRequest;
+use LamuyWeb\Models\Applicant;
+use LamuyWeb\Models\Category;
 use Illuminate\Support\Facades\Mail;
-use Lamuy\Models\Image;
-use Lamuy\Models\Slider;
-use Lamuy\Models\Work;
+use LamuyWeb\Models\Image;
+use LamuyWeb\Models\Slider;
+use LamuyWeb\Models\Work;
 
 class WebController extends AppBaseController
 {

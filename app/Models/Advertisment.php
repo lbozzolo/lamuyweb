@@ -1,8 +1,8 @@
 <?php
 
-namespace Lamuy\Models;
+namespace LamuyWeb\Models;
 
-use Lamuy\Models\Entity as Entity;
+use LamuyWeb\Models\Entity as Entity;
 
 class Advertisment extends Entity
 {

@@ -22,12 +22,19 @@
             </a>
         </li>
 
-        <li class="{{ Request::is('albums*') ? 'active' : '' }} nav-item">
-            <a href="{!! route('albums.index') !!}" class="nav-link">
-                <i class="mdi mdi-folder menu-icon"></i>
-                <span class="menu-title">Albums</span>
+        <li class="{{ Request::is('galería*') ? 'active' : '' }} nav-item">
+            <a href="{!! route('galleries.index') !!}" class="nav-link">
+                <i class="mdi mdi-image-album menu-icon"></i>
+                <span class="menu-title">Galerías</span>
             </a>
         </li>
+
+        {{--<li class="{{ Request::is('albums*') ? 'active' : '' }} nav-item">--}}
+            {{--<a href="{!! route('albums.index') !!}" class="nav-link">--}}
+                {{--<i class="mdi mdi-folder menu-icon"></i>--}}
+                {{--<span class="menu-title">Albums</span>--}}
+            {{--</a>--}}
+        {{--</li>--}}
 
         <li class="{{ Request::is('noticias*') ? 'active' : '' }} nav-item">
             <a href="{!! route('noticias.index') !!}" class="nav-link">

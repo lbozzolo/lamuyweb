@@ -1,10 +1,10 @@
 <?php
 
-namespace Lamuy\Http\Controllers\API;
+namespace LamuyWeb\Http\Controllers\API;
 
-use Lamuy\Traits\ApiResponser;
-use Lamuy\Models\Magazine;
-use Lamuy\Http\Controllers\Controller as Controller;
+use LamuyWeb\Traits\ApiResponser;
+use LamuyWeb\Models\Magazine;
+use LamuyWeb\Http\Controllers\Controller as Controller;
 
 class MagazineController extends Controller
 {

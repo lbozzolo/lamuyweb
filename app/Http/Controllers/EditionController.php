@@ -1,17 +1,17 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Lamuy\Http\Requests\CreateEditionRequest;
-use Lamuy\Http\Requests\UpdateEditionRequest;
+use LamuyWeb\Http\Requests\CreateEditionRequest;
+use LamuyWeb\Http\Requests\UpdateEditionRequest;
 use Intervention\Image\Facades\Image as Intervention;
-use Lamuy\Models\Edition;
-use Lamuy\Repositories\EditionRepository;
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Models\Edition;
+use LamuyWeb\Repositories\EditionRepository;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
 use phpDocumentor\Reflection\Types\Object_;
 
 class EditionController extends AppBaseController

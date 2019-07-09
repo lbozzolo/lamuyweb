@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => Lamuy\User::class,
+        'model' => LamuyWeb\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

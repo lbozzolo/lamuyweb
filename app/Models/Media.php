@@ -1,12 +1,12 @@
 <?php
 
-namespace Lamuy\Models;
+namespace LamuyWeb\Models;
 
-use Lamuy\Models\Entity as Entity;
+use LamuyWeb\Models\Entity as Entity;
 
 /**
  * Class Category
- * @package Lamuy\Models
+ * @package LamuyWeb\Models
  * @version September 3, 2018, 10:55 pm UTC
  *
  * @property string name

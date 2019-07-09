@@ -72,7 +72,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Lamuy\User::class,
+            'model' => LamuyWeb\User::class,
         ],
 
         'medicos' => [

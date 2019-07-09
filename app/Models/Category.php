@@ -1,12 +1,13 @@
 <?php
 
-namespace Lamuy\Models;
+namespace LamuyWeb\Models;
 
-use Lamuy\Models\Entity as Entity;
+use LamuyWeb\Models\Entity as Entity;
+use LamuyWeb\Models\Noticia as Noticia;
 
 /**
  * Class Category
- * @package Lamuy\Models
+ * @package LamuyWeb\Models
  * @version September 3, 2018, 10:55 pm UTC
  *
  * @property string name
@@ -42,7 +43,7 @@ class Category extends Entity
 
     public function noticias()
     {
-        return $this->belongsToMany(Noticia::class, 'categories_noticias');
+        return $this->belongsToMany(Noticia::class, 'categories_noticias', 'category_id', 'noticia_id');
     }
 
     

@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Transformers;
+namespace LamuyWeb\Transformers;
 
 use Carbon\Carbon;
-use Lamuy\Models\Magazine;
+use LamuyWeb\Models\Magazine;
 use League\Fractal\TransformerAbstract;
 
 class MagazineTransformer extends TransformerAbstract

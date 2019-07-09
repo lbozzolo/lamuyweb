@@ -1,13 +1,13 @@
 <?php
 
-namespace Lamuy\Repositories;
+namespace LamuyWeb\Repositories;
 
-use Lamuy\User;
+use LamuyWeb\User;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
  * Class ColorRepository
- * @package Lamuy\Repositories
+ * @package LamuyWeb\Repositories
  * @version September 3, 2018, 10:45 pm UTC
  *
  * @method Color findWithoutFail($id, $columns = ['*'])

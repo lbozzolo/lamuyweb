@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Models;
+namespace LamuyWeb\Models;
 
 use Carbon\Carbon;
-use Lamuy\Models\Entity as Entity;
+use LamuyWeb\Models\Entity as Entity;
 
 class Edition extends Entity
 {

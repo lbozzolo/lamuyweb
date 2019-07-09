@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamuy\Http\Middleware;
+namespace LamuyWeb\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 use Closure;

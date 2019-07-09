@@ -1,12 +1,12 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Http\Requests\CreateSliderRequest;
-use Lamuy\Http\Requests\UpdateSliderRequest;
-use Lamuy\Repositories\SliderRepository;
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
-use Lamuy\Models\Slider;
+use LamuyWeb\Http\Requests\CreateSliderRequest;
+use LamuyWeb\Http\Requests\UpdateSliderRequest;
+use LamuyWeb\Repositories\SliderRepository;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Models\Slider;
 
 class SliderController extends AppBaseController
 {

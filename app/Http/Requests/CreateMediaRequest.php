@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Http\Requests;
+namespace LamuyWeb\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Lamuy\Models\Media;
+use LamuyWeb\Models\Media;
 
 class CreateMediaRequest extends FormRequest
 {

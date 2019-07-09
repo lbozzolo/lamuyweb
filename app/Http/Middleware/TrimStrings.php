@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamuy\Http\Middleware;
+namespace LamuyWeb\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as BaseTrimmer;
 

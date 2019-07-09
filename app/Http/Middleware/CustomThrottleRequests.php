@@ -1,10 +1,10 @@
 <?php
 
-namespace Lamuy\Http\Middleware;
+namespace LamuyWeb\Http\Middleware;
 
 use Closure;
 use Illuminate\Routing\Middleware\ThrottleRequests;
-use Lamuy\Traits\ApiResponser;
+use LamuyWeb\Traits\ApiResponser;
 
 class CustomThrottleRequests extends ThrottleRequests
 {

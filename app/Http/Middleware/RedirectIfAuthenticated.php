@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamuy\Http\Middleware;
+namespace LamuyWeb\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Http\Requests\CreateAdvertismentRequest;
-use Lamuy\Http\Requests\UpdateAdvertismentRequest;
-use Lamuy\Repositories\AdvertismentRepository;
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Http\Requests\CreateAdvertismentRequest;
+use LamuyWeb\Http\Requests\UpdateAdvertismentRequest;
+use LamuyWeb\Repositories\AdvertismentRepository;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
 
 class AdvertismentController extends AppBaseController
 {

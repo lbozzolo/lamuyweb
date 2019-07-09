@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamuy\Providers;
+namespace LamuyWeb\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Lamuy\Events\Event' => [
-            'Lamuy\Listeners\EventListener',
+        'LamuyWeb\Events\Event' => [
+            'LamuyWeb\Listeners\EventListener',
         ],
     ];
 

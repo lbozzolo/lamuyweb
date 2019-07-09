@@ -30,6 +30,9 @@
         $('.summernote').summernote({
             height: 300
         });
+
+        $('#selectize').selectize();
+
     </script>
 
 @endsection

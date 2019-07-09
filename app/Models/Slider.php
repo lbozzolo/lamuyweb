@@ -1,13 +1,13 @@
 <?php
 
-namespace Lamuy\Models;
+namespace LamuyWeb\Models;
 
-use Lamuy\Models\Entity as Entity;
+use LamuyWeb\Models\Entity as Entity;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Slider
- * @package Lamuy\Models
+ * @package LamuyWeb\Models
  * @version September 6, 2018, 11:58 am UTC
  *
  * @property string name

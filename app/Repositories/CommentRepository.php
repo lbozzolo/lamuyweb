@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Repositories;
+namespace LamuyWeb\Repositories;
 
 use InfyOm\Generator\Common\BaseRepository;
-use Lamuy\Models\Comment;
+use LamuyWeb\Models\Comment;
 
 class CommentRepository extends BaseRepository
 {

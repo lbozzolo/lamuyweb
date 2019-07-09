@@ -1,8 +1,8 @@
 <?php
 
-namespace Lamuy\Repositories;
+namespace LamuyWeb\Repositories;
 
-use Lamuy\Models\Media;
+use LamuyWeb\Models\Media;
 use InfyOm\Generator\Common\BaseRepository;
 
 class MediaRepository extends BaseRepository

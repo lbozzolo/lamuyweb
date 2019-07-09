@@ -1,8 +1,8 @@
 <?php
 
-namespace Lamuy\Repositories;
+namespace LamuyWeb\Repositories;
 
-use Lamuy\Models\Category;
+use LamuyWeb\Models\Category;
 use InfyOm\Generator\Common\BaseRepository;
 
 class CategoryRepository extends BaseRepository

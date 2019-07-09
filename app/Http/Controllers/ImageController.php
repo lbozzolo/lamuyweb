@@ -1,18 +1,20 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Repositories\ImageRepository;
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
-use Illuminate\Support\Facades\File;
+use LamuyWeb\Repositories\ImageRepository;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Lamuy\Models\Image;
+use LamuyWeb\Models\Image;
 use Intervention\Image\Facades\Image as Intervention;
+use LamuyWeb\Traits\ImageTrait;
 
 class ImageController extends AppBaseController
 {
     private $imageRepository;
+
+    use ImageTrait;
 
     public function __construct(ImageRepository $imageRepo)
     {
@@ -21,91 +23,9 @@ class ImageController extends AppBaseController
 
     public function destroy($id)
     {
-        $image = $this->imageRepository->findWithoutFail($id);
-        $image_big = Image::where('thumbnail_id', $id)->first();
-
-        if (empty($image))
-            return redirect(route('images.index'))->withErrors('Imagen no encontrada');
-
-        $image->forceDelete();
-        $image_big->forceDelete();
-
-        File::delete(public_path("imagenes/".$image->path));
-        File::delete(public_path("imagenes/".$image_big->path));
-
+        $this->destroyImage($id);
         return redirect()->back()->with('ok', 'Imagen eliminada con éxito');
     }
-
-    public function verImage($file)
-    {
-        $ruta = storage_path("imagenes\\".$file);
-
-        return response()->make(File::get($ruta),200)
-            ->header('Content-Type', 'image/jpg');
-    }
-
-    public function verCover($file)
-    {
-        $ruta = public_path("covers/".$file);
-
-        return response()->make(File::get($ruta),200)
-            ->header('Content-Type', 'image/jpg');
-    }
-
-    public function verPdf($file)
-    {
-        return response()->make(\Illuminate\Support\Facades\File::get(public_path("pdf/".$file)),200)
-            ->header('Content-Type', 'application/pdf');
-    }
-
-    public function changeFileNameIfExists($file)
-    {
-        $regEx = '/\\.[^.\\s]{3,4}$/';
-        $string_random = str_random(28);
-
-        $originalName = $file->getClientOriginalName();
-        $extension = $file->guessExtension();
-
-        $nombre = preg_replace($regEx, '', $originalName) . '-' . $string_random . '.' . $extension;
-        $nombre = str_replace(' ','',$nombre);
-        $nombre = str_replace_array('#', ['x'], $nombre);
-        $nombre = strtolower($nombre);
-
-        return $nombre;
-    }
-
-    public function makeThumb($img, $name, $model = null, $type = null)
-    {
-        $img->save(public_path('/imagenes/'). 'thumb-'.$name);
-        $image_thumb = Image::create(['path' => 'thumb-'.$name, 'main' => 0, 'type' => $type ]);
-
-        if($model)
-            $model->images()->save($image_thumb);
-
-        return $image_thumb;
-    }
-
-    public function principalImage($id, $class, $image)
-    {
-        $imagen = Image::find($image);
-        $imagen_thumb = Image::find($imagen->thumbnail_id);
-        $class = env('APP_NAME').'\Models\\'.$class;
-        $model = $class::find($id);
-
-        foreach($model->images as $img){
-            $img->main = 0;
-            $img->save();
-        }
-
-        $imagen->main = 1;
-        $imagen_thumb->main = 1;
-        $imagen->save();
-        $imagen_thumb->save();
-
-        return redirect()->back();
-    }
-
-    // Croppie
 
     public function saveJqueryImageUpload(Request $request, $id, $class)
     {
@@ -126,7 +46,7 @@ class ImageController extends AppBaseController
             $img_thumb = Intervention::make($request->file('img'))->resize(config('sistema.imagenes.WIDTH_THUMB'), config('sistema.imagenes.HEIGHT_THUMB'));
         }
 
-        $class = 'Lamuy\Models\\'.$class;
+        $class = 'LamuyWeb\Models\\'.$class;
         $model = $class::find($id);
 
         // Redirección si supera el máximo de fotos permitido
@@ -161,48 +81,26 @@ class ImageController extends AppBaseController
         return response($status,200);
     }
 
-    public function saveWithoutModel(Request $request, $type)
+    public function subirMultiple(Request $request)
     {
-        $validator = Validator::make($request->all(), ['img' => 'required|image|max:1024000']);
+        $this->validate($request, [
+            'filename' => 'required',
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
 
-        if ($validator->fails())
-            return $validator->errors();
+        $itemId = $request['item_id'];
+        $class = $request['class'];
 
-        $status = "";
+        if($request->hasfile('filename')) {
 
-        if(!$request->hasFile('img'))
-            return redirect()->back()->withErrors('No ha seleccionado ningún archivo');
-
-        $type = ($type == 'past')? 0 : 1;
-
-        // Resize to image thumbnail
-        $img_thumb = Intervention::make($request->file('img'))->resize(config('sistema.imagenes.WIDTH_THUMB'), config('sistema.imagenes.HEIGHT_THUMB'));
-
-        if($request->file('img')){
-
-            $file = $request->file('img');
-
-            // Redirección si excede el máximo tamaño de imagen permitido
-            if($file->getClientSize() > config('sistema.imagenes.MAX_SIZE_IMAGE'))
-                return redirect()->back()->withErrors('La foto es demasiado grande (Debe ser menor a 5M)');
-
-            // Confirma que el archivo no exista en el destino
-            $nombre = $this->changeFileNameIfExists($file);
-
-            $imagen = Image::create(['path' => $nombre, 'main' => 0, 'type' => $type]);
-            $imagen->title = ($request->title)? $request->title : '';
-            $file->move(public_path('imagenes'), $nombre);
-
-
-            $image_thumb = $this->makeThumb($img_thumb, $nombre, null, $type);
-            $imagen->thumbnail_id = $image_thumb->id;
-            $imagen->save();
-
-            $status = "uploaded";
+            foreach($request->file('filename') as $file) {
+                $image = $this->storeImage($file, $itemId, $class);
+                $data[] = $image->path;
+            }
 
         }
 
-        return response($status,200);
+        return redirect()->back()->with('ok', 'Las imágenes han sido subidas con éxito');
     }
 
 }

@@ -1,67 +1,68 @@
-<div class="row">
 
-    {{-- Errores --}}
-    @if ($errors->count() > 0)
-        <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
 
-            <div class="card-body">
-                <div class="alert alert-danger alert-dismissible">
+{{-- Errores --}}
+@if ($errors->count() > 0)
 
-                    <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
-                    <i class="icon fa fa-warning"></i>
-                    {{--Ha ocurrido un error:<br />--}}
-                    @if ($errors->count() > 1)
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    @else
-                        {{ $errors->first() }}
-                    @endif
+    <div class="alert alert-danger alert-dismissible">
 
-                </div>
-            </div>
+        <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
+        <i class="icon fa fa-warning"></i>
+        {{--Ha ocurrido un error:<br />--}}
+        @if ($errors->count() > 1)
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @else
+            {{ $errors->first() }}
+        @endif
 
-        </div>
-    @endif
+    </div>
 
-    {{-- Success --}}
-    @if (session()->has('ok') || isset($ok))
-        <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 message">
+@endif
 
-            <div class="card-body">
-                <div class="alert alert-success alert-dismissible">
-                    <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
-                    <i class="icon fa fa-check"></i>
-                    @if (session()->has('ok'))
-                        {!! session('ok') !!}
-                    @else
-                        {!! $ok !!}
-                    @endif
-                </div>
-            </div>
+{{-- Success --}}
+@if (session()->has('ok') || isset($ok))
 
-        </div>
-    @endif
+    <div class="alert alert-success alert-dismissible">
+        <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
+        <i class="icon fa fa-check"></i>
+        @if (session()->has('ok'))
+            {!! session('ok') !!}
+        @else
+            {!! $ok !!}
+        @endif
+    </div>
 
-    {{-- Info --}}
-    @if (session()->has('info') || isset($info))
-        <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
+@endif
 
-            <div class="card-body">
-                <div class="alert alert-info alert-dismissible">
-                    <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
-                    <i class="icon fa fa-exclamation-triangle"></i>
-                    @if (session()->has('info'))
-                        {!! session('info') !!}
-                    @else
-                        {!! $info !!}
-                    @endif
-                </div>
-            </div>
+{{-- Info --}}
+@if (session()->has('info') || isset($info))
 
-        </div>
-    @endif
+    <div class="alert alert-info alert-dismissible">
+        <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
+        <i class="icon fa fa-exclamation-triangle"></i>
+        @if (session()->has('info'))
+            {!! session('info') !!}
+        @else
+            {!! $info !!}
+        @endif
+    </div>
 
-</div>
+@endif
+
+{{-- Warning --}}
+@if (session()->has('warning') || isset($warning))
+
+    <div class="alert alert-warning alert-dismissible">
+        <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
+        <i class="icon fa fa-exclamation-triangle"></i>
+        @if (session()->has('warning'))
+            {!! session('warning') !!}
+        @else
+            {!! $warning !!}
+        @endif
+    </div>
+
+@endif

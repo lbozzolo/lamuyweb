@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Models;
+namespace LamuyWeb\Models;
 
-use Lamuy\Models\Edition as Edition;
-use Lamuy\Transformers\MagazineTransformer;
+use LamuyWeb\Models\Edition as Edition;
+use LamuyWeb\Transformers\MagazineTransformer;
 
 class Magazine extends Edition
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Lamuy\Models;
+namespace LamuyWeb\Models;
 
-use Lamuy\Models\Entity as Entity;
-use Lamuy\User;
+use LamuyWeb\Models\Entity as Entity;
+use LamuyWeb\User;
 
 class Like extends Entity
 {

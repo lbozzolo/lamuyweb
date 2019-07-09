@@ -1,11 +1,11 @@
 <?php
 
-namespace Lamuy\Http\Controllers;
+namespace LamuyWeb\Http\Controllers;
 
-use Lamuy\Http\Requests\CreateLikeRequest;
-use Lamuy\Http\Controllers\AppBaseController as AppBaseController;
-use Lamuy\Http\Requests\UpdateLikeRequest;
-use Lamuy\Repositories\LikeRepository;
+use LamuyWeb\Http\Requests\CreateLikeRequest;
+use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
+use LamuyWeb\Http\Requests\UpdateLikeRequest;
+use LamuyWeb\Repositories\LikeRepository;
 
 class LikeController extends AppBaseController
 {

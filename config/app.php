@@ -178,11 +178,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Lamuy\Providers\AppServiceProvider::class,
-        Lamuy\Providers\AuthServiceProvider::class,
-        // Lamuy\Providers\BroadcastServiceProvider::class,
-        Lamuy\Providers\EventServiceProvider::class,
-        Lamuy\Providers\RouteServiceProvider::class,
+        LamuyWeb\Providers\AppServiceProvider::class,
+        LamuyWeb\Providers\AuthServiceProvider::class,
+        // LamuyWeb\Providers\BroadcastServiceProvider::class,
+        LamuyWeb\Providers\EventServiceProvider::class,
+        LamuyWeb\Providers\RouteServiceProvider::class,
         /*
          * GUI Interface - Generator Builder...
          */
