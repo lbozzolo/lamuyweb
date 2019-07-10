@@ -26,7 +26,7 @@ class Entity extends Model
 
     public function mainImage()
     {
-        return $this->images()->where('main', 1)->first();
+        return ($this->images()->where('main', 1)->first())? $this->images()->where('main', 1)->first() : $this->images->first();
     }
 
     public function mainImageThumb()

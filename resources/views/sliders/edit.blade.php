@@ -29,7 +29,7 @@
     <div class="card col-lg-12 mt-3">
         <div class="card-body">
 
-            @include($modelPlural.'.images')
+            @include('images.images')
 
         </div>
     </div>

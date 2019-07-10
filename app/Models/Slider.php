@@ -45,4 +45,14 @@ class Slider extends Entity
         'name' => 'required'
     ];
 
+    public function scopeActive()
+    {
+        return $this->where('active', '=', 1);
+    }
+
+    public function texts()
+    {
+        return $this->belongsToMany(Image::class, 'slider_images_messages')->withPivot('main_text', 'secondary_text');
+    }
+
 }

@@ -58,8 +58,8 @@ class GalleryController extends AppBaseController
 
     public function index()
     {
-        $this->data['images_big'] = Image::bigs()->galleryType();
-        $this->data['images_thumb'] = Image::thumbs()->galleryType();
+//        $this->data['images_big'] = Image::bigs()->galleryType();
+//        $this->data['images_thumb'] = Image::thumbs()->galleryType();
         $this->data[$this->modelPlural] = $this->repo->all();
 
         return view($this->modelPlural.'.index')->with($this->data);

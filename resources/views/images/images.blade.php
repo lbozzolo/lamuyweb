@@ -51,8 +51,9 @@
 @foreach($item->imagesBig as $image)
 
     <div class="modal fade" id="modalVerImage{!! $image->thumbnail_id !!}">
+
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="min-height: 200px">
                 <div class="modal-body">
                     <img src="{{ route('imagenes.ver', $image->path) }}" class="img-responsive" alt="{!! $image->title !!}" style="width: 100%; margin: 0px auto">
                 </div>
@@ -73,29 +74,28 @@
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
                         <i class="mdi mdi-close"></i> Cancelar
                     </button>
-                    <div class="modal fade text-left" id="modalDeleteImage{!! $image->thumbnail_id !!}">
-                        <div class="modal-dialog">
-                            <div class="modal-content col-lg-6 col-lg-offset-3">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Eliminar imagen</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p class="text-red">¿Está seguro que desea eliminar la imagen?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                                    {!! Form::open(['method' => 'DELETE', 'url' => route('images.destroy', $image->thumbnail_id)]) !!}
-                                    {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
-                                    {!! Form::close() !!}
-                                </div>
-                            </div>
-                        </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade text-left" id="modalDeleteImage{!! $image->thumbnail_id !!}" style="margin-top: 5%">
+            <div class="modal-dialog">
+                <div class="modal-content col-lg-10 col-lg-offset-1 text-center" style="border: 1px solid #e65251; border-radius: 0px">
+
+                    <div class="modal-body bg-danger text-white" style="margin-top: 20px">
+                        <p class="text-red">¿Está seguro que desea eliminar la imagen?</p>
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        {!! Form::open(['method' => 'DELETE', 'url' => route('images.destroy', $image->thumbnail_id)]) !!}
+                        {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
 @endforeach

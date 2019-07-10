@@ -41,12 +41,24 @@ class ImageController extends AppBaseController
 
         // Resize to image thumbnail. Different size if Slider image.
         if($class == 'Slider') {
-            $img_thumb = Intervention::make($request->file('img'))->resize(config('sistema.imagenes.SLIDER_WIDTH_THUMB'), config('sistema.imagenes.SLIDER_HEIGHT_THUMB'));
+
+            $img_thumb = Intervention::make($request->file('img'))
+                ->resize(config('sistema.imagenes.SLIDER_WIDTH_THUMB'), null, function ($constraint){
+                    $constraint->aspectRatio();
+                });
+
+            //$img_thumb = Intervention::make($request->file('img'))->resize(config('sistema.imagenes.SLIDER_WIDTH_THUMB'), config('sistema.imagenes.SLIDER_HEIGHT_THUMB'));
         } else {
-            $img_thumb = Intervention::make($request->file('img'))->resize(config('sistema.imagenes.WIDTH_THUMB'), config('sistema.imagenes.HEIGHT_THUMB'));
+
+            $img_thumb = Intervention::make($request->file('img'))
+                ->resize(config('sistema.imagenes.WIDTH_THUMB'), null, function ($constraint){
+                    $constraint->aspectRatio();
+                });
+
+            //$img_thumb = Intervention::make($request->file('img'))->resize(config('sistema.imagenes.WIDTH_THUMB'), config('sistema.imagenes.HEIGHT_THUMB'));
         }
 
-        $class = 'LamuyWeb\Models\\'.$class;
+        $class = env('APP_NAME').'\Models\\'.$class;
         $model = $class::find($id);
 
         // Redirección si supera el máximo de fotos permitido
@@ -59,7 +71,7 @@ class ImageController extends AppBaseController
 
             // Redirección si excede el máximo tamaño de imagen permitido
             if($file->getClientSize() > config('sistema.imagenes.MAX_SIZE_IMAGE'))
-                return redirect()->back()->withErrors('La foto es demasiado grande (Debe ser menor a 5M)');
+                return redirect()->back()->withErrors('La foto es demasiado grande.');
 
             // Confirma que el archivo no exista en el destino
             $nombre = $this->changeFileNameIfExists($file);

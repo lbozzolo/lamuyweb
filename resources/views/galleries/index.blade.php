@@ -50,12 +50,16 @@
                                     @if($gallery->mainImage())
                                         <div style="min-height: 200px; width: 100%; background-image: url('{!! asset('imagenes/'.$gallery->mainImage()->path) !!}'); background-size: cover; background-repeat: no-repeat"></div>
                                         {{--<div style="height: 150px; width: 200px; background-image: url('{!! asset('imagenes/'.$gallery->mainImage()->path) !!}'); background-size: cover; background-repeat: no-repeat"></div>--}}
-                                        <p style="margin-top: 13px; @if($gallery->active) color: limegreen @endif">{!! $gallery->name !!}</p>
+                                        <p style="margin-top: 13px; @if($gallery->active) color: limegreen @endif">
+                                            {!! $gallery->name !!} ({!! $gallery->fecha_creado !!})
+                                        </p>
                                     @else
                                         <div style="border: 1px solid lightgrey; min-height: 200px; width: 100%; background-image: url('{!! asset('images/noimage.png') !!}'); background-size: cover; background-repeat: no-repeat"></div>
 
                                         {{--<img src="{!! asset('images/noimage.png') !!}" style="width: 100%; @if($gallery->active) border: 2px solid limegreen @else border: 1px solid lightgray @endif">--}}
-                                        <p style="margin-top: 13px; @if($gallery->active) 'color: limegreen' @endif">{!! $gallery->name !!}</p>
+                                        <p style="margin-top: 13px; @if($gallery->active) 'color: limegreen' @endif">
+                                            {!! $gallery->name !!} ({!! $gallery->fecha_creado !!})
+                                        </p>
                                     @endif
                                 </a>
                             </div>

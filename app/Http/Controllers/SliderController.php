@@ -2,8 +2,10 @@
 
 namespace LamuyWeb\Http\Controllers;
 
+use LamuyWeb\Models\SliderMessage;
 use LamuyWeb\Http\Requests\CreateSliderRequest;
 use LamuyWeb\Http\Requests\UpdateSliderRequest;
+use LamuyWeb\Models\Image;
 use LamuyWeb\Repositories\SliderRepository;
 use LamuyWeb\Http\Controllers\AppBaseController as AppBaseController;
 use LamuyWeb\Models\Slider;
@@ -100,7 +102,33 @@ class SliderController extends AppBaseController
         if (empty($this->data['item']))
             return redirect(route($this->modelPlural.'.index'))->withErrors($this->show_failure_message);
 
-        $this->data['item'] = $this->repo->update($request->all(), $id);
+        $this->data['item'] = $this->repo->update($request->except('main_text', 'secondary_text'), $id);
+
+        if($request['main_text']){
+            foreach($request['main_text'] as $key => $value){
+                $image = Image::find($key);
+                $item = SliderMessage::where('image_id', $key)->first();
+                if($item){
+                    $item->main_text = $value;
+                    $item->save();
+                } else {
+                    $this->data['item']->texts()->attach($image, ['main_text' => $value]);
+                }
+            }
+        }
+
+        if($request['secondary_text']){
+            foreach($request['secondary_text'] as $key => $value) {
+                $image = Image::find($key);
+                $item = SliderMessage::where('image_id', $key)->first();
+                if($item){
+                    $item->secondary_text = $value;
+                    $item->save();
+                } else {
+                    $this->data['item']->texts()->attach($image, ['secondary_text' => $value]);
+                }
+            }
+        }
 
         if(!$this->data['item'])
             return redirect()->back()->withErrors($this->update_failure_message);

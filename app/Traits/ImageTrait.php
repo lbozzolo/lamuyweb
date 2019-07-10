@@ -112,13 +112,14 @@ trait ImageTrait
         // Resize to image thumbnail. Different size if Slider image.
         if($class == 'LamuyWeb\Models\Slider') {
             $img_thumb = Intervention::make($file)
-                ->resize(config('sistema.imagenes.SLIDER_WIDTH_THUMB'), config('sistema.imagenes.SLIDER_HEIGHT_THUMB'));
+                ->resize(config('sistema.imagenes.SLIDER_WIDTH_THUMB'), null, function ($constraint){
+                    $constraint->aspectRatio();
+                });
         } else {
             $img_thumb = Intervention::make($file)
                 ->resize(config('sistema.imagenes.WIDTH_THUMB'), null, function ($constraint){
                     $constraint->aspectRatio();
                 });
-            //$img_thumb = $img_thumb->crop(config('sistema.imagenes.WIDTH_THUMB'), config('sistema.imagenes.HEIGHT_THUMB'), 50, 50);
         }
 
         // Confirma que el archivo no exista en el destino
