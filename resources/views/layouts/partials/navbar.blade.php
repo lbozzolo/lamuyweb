@@ -1,6 +1,6 @@
 <header class="main-header">
 
-    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row" style="background-image: linear-gradient(to right, white, magenta , darkmagenta);">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
             <a class="navbar-brand brand-logo" href="{{ route('admin') }}">
                 <img src="{{ asset('images/logos/logo.png') }}" alt="logo" class="img-responsive" style="height: 100%"/>
@@ -9,11 +9,11 @@
                 <img src="{{ asset('images/logos/favicon.png') }}" alt="logo" />
             </a>
         </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center" style="background-image: linear-gradient(to right, white, magenta , darkmagenta);">
+        <div class="navbar-menu-wrapper d-flex align-items-center">
 
             <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
                 <li class="nav-item">
-                    <a href="{{ asset('web/home') }}" target="_blank" class="nav-link" style="color: darkslategray">
+                    <a href="{{ asset('web/home') }}" target="_blank" class="nav-link" style="color: white">
                         <i class="mdi mdi-web"></i>WebSite
                     </a>
                 </li>

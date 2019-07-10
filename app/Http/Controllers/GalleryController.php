@@ -134,7 +134,7 @@ class GalleryController extends AppBaseController
         return view($this->modelPlural.'.configuration')->with($this->data);
     }
 
-    public function empty($id, Request $request)
+    public function isEmpty($id, Request $request)
     {
         $this->data['item'] = $this->repo->findWithoutFail($id);
 

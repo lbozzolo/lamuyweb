@@ -45,13 +45,16 @@
 
                         @forelse($galleries as $gallery)
 
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
                                 <a href="{!! route($modelPlural.'.show', $gallery->id) !!}" class="text-center">
-                                    @if($gallery->mainImageThumb())
-                                        <img src="{{ route('imagenes.ver', $gallery->mainImageThumb()->path) }}" style="width: 100%; @if($gallery->active) border: 2px solid limegreen @endif">
+                                    @if($gallery->mainImage())
+                                        <div style="min-height: 200px; width: 100%; background-image: url('{!! asset('imagenes/'.$gallery->mainImage()->path) !!}'); background-size: cover; background-repeat: no-repeat"></div>
+                                        {{--<div style="height: 150px; width: 200px; background-image: url('{!! asset('imagenes/'.$gallery->mainImage()->path) !!}'); background-size: cover; background-repeat: no-repeat"></div>--}}
                                         <p style="margin-top: 13px; @if($gallery->active) color: limegreen @endif">{!! $gallery->name !!}</p>
                                     @else
-                                        <img src="{!! asset('images/noimage.png') !!}" style="width: 100%; @if($gallery->active) border: 2px solid limegreen @else border: 1px solid lightgray @endif">
+                                        <div style="border: 1px solid lightgrey; min-height: 200px; width: 100%; background-image: url('{!! asset('images/noimage.png') !!}'); background-size: cover; background-repeat: no-repeat"></div>
+
+                                        {{--<img src="{!! asset('images/noimage.png') !!}" style="width: 100%; @if($gallery->active) border: 2px solid limegreen @else border: 1px solid lightgray @endif">--}}
                                         <p style="margin-top: 13px; @if($gallery->active) 'color: limegreen' @endif">{!! $gallery->name !!}</p>
                                     @endif
                                 </a>
@@ -83,6 +86,38 @@
         $('#create-gallery-btn').click(function () {
 
             $('#create-gallery').show();
+
+        });
+
+        $(document).ready(function(){
+
+            $('.img-responsive').each(function() {
+                var maxWidth = 200; // Max width for the image
+                var maxHeight = 150;    // Max height for the image
+                var ratio = 0;  // Used for aspect ratio
+                var width = $(this).width();    // Current image width
+                var height = $(this).height();  // Current image height
+
+                // Check if the current width is larger than the max
+                if(width > maxWidth){
+                    ratio = maxWidth / width;   // get ratio for scaling image
+                    $(this).css("width", maxWidth); // Set new width
+                    $(this).css("height", height * ratio);  // Scale height based on ratio
+                    height = height * ratio;    // Reset height to match scaled image
+                }
+
+                var width = $(this).width();    // Current image width
+                var height = $(this).height();  // Current image height
+
+                // Check if current height is larger than max
+                if(height > maxHeight){
+                    ratio = maxHeight / height; // get ratio for scaling image
+                    $(this).css("height", maxHeight);   // Set new height
+                    $(this).css("width", width * ratio);    // Scale width based on ratio
+                    width = width * ratio;    // Reset width to match scaled image
+                }
+
+            });
 
         });
 

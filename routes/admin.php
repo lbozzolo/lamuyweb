@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::delete('galleries/{id}/empty', [
         'as' => 'galleries.empty',
-        'uses' => 'GalleryController@empty'
+        'uses' => 'GalleryController@isEmpty'
     ]);
 
     Route::get('galleries/{id}/active', [

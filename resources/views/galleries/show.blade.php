@@ -94,7 +94,36 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-12 grid-margin">
+        <div class="col-lg-5 grid-margin stretch-card">
+
+            <div class="card card-body">
+                <form method="post" action="{{ route('images.subir.multiple') }}" enctype="multipart/form-data">
+                    {{csrf_field()}}
+
+                    {!! Form::hidden('class', 'Gallery') !!}
+                    {!! Form::hidden('item_id', $item->id) !!}
+                    <div class="input-group control-group increment" >
+                        <input type="file" name="filename[]" class="form-control">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success" type="button"><i class="mdi mdi-plus-circle"></i>agregar</button>
+                        </div>
+                    </div>
+                    <div class="clone hide">
+                        <div class="control-group input-group" style="margin-top:10px">
+                            <input type="file" name="filename[]" class="form-control">
+                            <div class="input-group-btn">
+                                <button class="btn btn-danger remove-input" type="button"><i class="mdi mdi-minus"></i> suprimir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="margin-top:10px">Subir</button>
+
+                </form>
+            </div>
+
+        </div>
+        <div class="col-lg-7 grid-margin ">
 
             @include('galleries.images')
 
@@ -109,5 +138,21 @@
     <script src="{{ asset('croppie/croppie.js') }}"></script>
     <script src="{{ asset('exif-js/exif.js') }}"></script>
     <script src="{{ asset('js/croppie-file-servicio.js') }}"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            $(".btn-success").click(function(){
+                var html = $(".clone").html();
+                $(".increment").after(html);
+            });
+
+            $("body").on("click",".remove-input",function(){
+                $(this).parents(".control-group").remove();
+            });
+
+        });
+
+    </script>
 
 @endsection

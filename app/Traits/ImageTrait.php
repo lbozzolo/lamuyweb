@@ -111,9 +111,14 @@ trait ImageTrait
 
         // Resize to image thumbnail. Different size if Slider image.
         if($class == 'LamuyWeb\Models\Slider') {
-            $img_thumb = Intervention::make($file)->resize(config('sistema.imagenes.SLIDER_WIDTH_THUMB'), config('sistema.imagenes.SLIDER_HEIGHT_THUMB'));
+            $img_thumb = Intervention::make($file)
+                ->resize(config('sistema.imagenes.SLIDER_WIDTH_THUMB'), config('sistema.imagenes.SLIDER_HEIGHT_THUMB'));
         } else {
-            $img_thumb = Intervention::make($file)->resize(config('sistema.imagenes.WIDTH_THUMB'), config('sistema.imagenes.HEIGHT_THUMB'));
+            $img_thumb = Intervention::make($file)
+                ->resize(config('sistema.imagenes.WIDTH_THUMB'), null, function ($constraint){
+                    $constraint->aspectRatio();
+                });
+            //$img_thumb = $img_thumb->crop(config('sistema.imagenes.WIDTH_THUMB'), config('sistema.imagenes.HEIGHT_THUMB'), 50, 50);
         }
 
         // Confirma que el archivo no exista en el destino
@@ -147,7 +152,8 @@ trait ImageTrait
         $type = ($type == 'past')? 0 : 1;
 
         // Resize to image thumbnail
-        $img_thumb = Intervention::make($request->file('img'))->resize(config('sistema.imagenes.WIDTH_THUMB'), config('sistema.imagenes.HEIGHT_THUMB'));
+        $img_thumb = Intervention::make($request->file('img'))
+            ->resize(config('sistema.imagenes.WIDTH_THUMB'), config('sistema.imagenes.HEIGHT_THUMB'));
 
         if($request->file('img')){
 

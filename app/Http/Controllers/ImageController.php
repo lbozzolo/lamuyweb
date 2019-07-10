@@ -83,10 +83,14 @@ class ImageController extends AppBaseController
 
     public function subirMultiple(Request $request)
     {
+        $messages = [
+            'filename.required' => 'No ha seleccionado ningún archivo.',
+            'filename.*.max' => 'La imagen es demasiado grande.'
+        ];
         $this->validate($request, [
             'filename' => 'required',
-            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120'
+        ], $messages);
 
         $itemId = $request['item_id'];
         $class = $request['class'];
@@ -100,7 +104,7 @@ class ImageController extends AppBaseController
 
         }
 
-        return redirect()->back()->with('ok', 'Las imágenes han sido subidas con éxito');
+        return redirect()->back()->with('ok', 'Subida de imágenes exitosa');
     }
 
 }
